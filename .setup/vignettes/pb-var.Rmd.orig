@@ -263,7 +263,7 @@ psi_l # psi_l <- t(chol(psi))
 ### Parametric Bootstrap
 
 ```{r}
-R <- 5L # use at least 1000 in actual research
+R <- 1000L # use at least 1000 in actual research
 path <- getwd()
 prefix <- "var"
 ```
