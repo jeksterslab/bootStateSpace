@@ -13,21 +13,18 @@ Description: Provides a streamlined and user-friendly framework
     a scenario commonly encountered in social and behavioral sciences.
     For an introduction to state space models in social and behavioral sciences,
     refer to Chow, Ho, Hamaker, and Dolan (2010) <doi:10.1080/10705511003661553>.
-URL: https://github.com/jeksterslab/bootStateSpace, https://jeksterslab.github.io/bootStateSpace/
+URL: https://github.com/jeksterslab/bootStateSpace,
+        https://jeksterslab.github.io/bootStateSpace/
 BugReports: https://github.com/jeksterslab/bootStateSpace/issues
 License: GPL (>= 3)
 Encoding: UTF-8
-LazyData: true
 Roxygen: list(markdown = TRUE)
-Depends:
-    R (>= 3.5.0)
-Imports: 
-    stats,
-    dynr,
-    simStateSpace
-Suggests:
-    knitr,
-    rmarkdown,
-    testthat,
-    expm
+Depends: R (>= 3.5.0)
+Imports: stats, dynr, simStateSpace
+Suggests: knitr, rmarkdown, testthat, expm
 RoxygenNote: 7.3.2
+NeedsCompilation: no
+Packaged: 2025-01-18 22:26:20 UTC; root
+Author: Ivan Jacob Agaloos Pesigan [aut, cre, cph]
+    (<https://orcid.org/0000-0003-4818-8420>)
+Maintainer: Ivan Jacob Agaloos Pesigan <r.jeksterslab@gmail.com>
