@@ -380,7 +380,7 @@ and state-space modeling techniques.
 \doi{10.1080/10705511003661553}
 }
 \seealso{
-Other Simulation of State Space Models Data Functions: 
+Other Bootstrap for State Space Models Functions: 
 \code{\link{PBSSMFixed}()},
 \code{\link{PBSSMLinSDEFixed}()},
 \code{\link{PBSSMOUFixed}()}
@@ -388,7 +388,7 @@ Other Simulation of State Space Models Data Functions:
 \author{
 Ivan Jacob Agaloos Pesigan
 }
-\concept{Simulation of State Space Models Data Functions}
+\concept{Bootstrap for State Space Models Functions}
 \keyword{boot}
 \keyword{bootStateSpace}
 \keyword{pb}

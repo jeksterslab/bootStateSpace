@@ -14,9 +14,6 @@ template:
     code_font: {google: "JetBrains Mono"}
 
 reference:
-- title: Bootstrap
-  contents:
-  - has_keyword("boot")
 - title: Parametric Bootstrap
   contents:
   - has_keyword("pb")
