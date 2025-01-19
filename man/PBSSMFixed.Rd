@@ -554,7 +554,7 @@ Equivalence and differences between structural equation modeling
 and state-space modeling techniques.
 \emph{Structural Equation Modeling: A Multidisciplinary Journal},
 17(2), 303–332.
-\ifelse{text}{doi:10.1080/10705511003661553 <https://doi.org/10.1080/10705511003661553>}{\ifelse{latex}{\href{https://doi.org/10.1080/10705511003661553}{doi:10.1080\out{\\slash{}}10705511003661553}}{\href{https://doi.org/10.1080/10705511003661553}{doi:10.1080/10705511003661553}}}
+\doi{10.1080/10705511003661553}
 }
 \seealso{
 Other Simulation of State Space Models Data Functions: 

@@ -18,7 +18,8 @@
 #' @inheritParams simStateSpace::SimSSMOUFixed
 #' @inheritParams PBSSMLinSDEFixed
 #' @inheritParams dynr::dynr.cook
-#' @inherit simStateSpace::SimSSMOUFixed references details
+#' @inherit simStateSpace::SimSSMOUFixed details
+#' @inherit PBSSMFixed references
 #'
 #' @return Returns an object
 #'   of class `bootstatespace` which is a list with the following elements:

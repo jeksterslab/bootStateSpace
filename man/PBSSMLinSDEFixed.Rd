@@ -577,19 +577,7 @@ Equivalence and differences between structural equation modeling
 and state-space modeling techniques.
 \emph{Structural Equation Modeling: A Multidisciplinary Journal},
 17(2), 303–332.
-\ifelse{text}{doi:10.1080/10705511003661553 <https://doi.org/10.1080/10705511003661553>}{\ifelse{latex}{\href{https://doi.org/10.1080/10705511003661553}{doi:10.1080\out{\\slash{}}10705511003661553}}{\href{https://doi.org/10.1080/10705511003661553}{doi:10.1080/10705511003661553}}}
-
-Chow, S.-M., Losardo, D., Park, J., & Molenaar, P. C. M. (2023).
-Continuous-time dynamic models:
-Connections to structural equation models and other discrete-time models.
-In R. H. Hoyle (Ed.),
-Handbook of structural equation modeling (2nd ed.).
-The Guilford Press.
-
-Harvey, A. C. (1990).
-Forecasting, structural time series models and the Kalman filter.
-Cambridge University Press.
-\ifelse{text}{doi:10.1017/cbo9781107049994 <https://doi.org/10.1017/cbo9781107049994>}{\ifelse{latex}{\href{https://doi.org/10.1017/cbo9781107049994}{doi:10.1017\out{\\slash{}}cbo9781107049994}}{\href{https://doi.org/10.1017/cbo9781107049994}{doi:10.1017/cbo9781107049994}}}
+\doi{10.1080/10705511003661553}
 }
 \seealso{
 Other Simulation of State Space Models Data Functions: 

@@ -15,7 +15,7 @@
 #'
 #' @inheritParams simStateSpace::SimSSMFixed
 #' @inheritParams dynr::dynr.cook
-#' @inherit simStateSpace::SimSSMFixed references details
+#' @inherit simStateSpace::SimSSMFixed details
 #' @param R Positive integer.
 #'   Number of bootstrap samples.
 #' @param path Path to a directory
@@ -63,6 +63,14 @@
 #' @param maxtime Stopping criteria option
 #'   for parameter optimization.
 #'   See [dynr::dynr.model()] for more details.
+#'
+#' @references
+#'   Chow, S.-M., Ho, M. R., Hamaker, E. L., & Dolan, C. V. (2010).
+#'   Equivalence and differences between structural equation modeling
+#'   and state-space modeling techniques.
+#'   *Structural Equation Modeling: A Multidisciplinary Journal*,
+#'   17(2), 303–332.
+#'   \doi{10.1080/10705511003661553}
 #'
 #' @return Returns an object
 #'   of class `bootstatespace` which is a list with the following elements:

@@ -537,32 +537,7 @@ Equivalence and differences between structural equation modeling
 and state-space modeling techniques.
 \emph{Structural Equation Modeling: A Multidisciplinary Journal},
 17(2), 303–332.
-\ifelse{text}{doi:10.1080/10705511003661553 <https://doi.org/10.1080/10705511003661553>}{\ifelse{latex}{\href{https://doi.org/10.1080/10705511003661553}{doi:10.1080\out{\\slash{}}10705511003661553}}{\href{https://doi.org/10.1080/10705511003661553}{doi:10.1080/10705511003661553}}}
-
-Chow, S.-M., Losardo, D., Park, J., & Molenaar, P. C. M. (2023).
-Continuous-time dynamic models:
-Connections to structural equation models and other discrete-time models.
-In R. H. Hoyle (Ed.),
-Handbook of structural equation modeling (2nd ed.).
-The Guilford Press.
-
-Harvey, A. C. (1990).
-Forecasting, structural time series models and the Kalman filter.
-Cambridge University Press.
-\ifelse{text}{doi:10.1017/cbo9781107049994 <https://doi.org/10.1017/cbo9781107049994>}{\ifelse{latex}{\href{https://doi.org/10.1017/cbo9781107049994}{doi:10.1017\out{\\slash{}}cbo9781107049994}}{\href{https://doi.org/10.1017/cbo9781107049994}{doi:10.1017/cbo9781107049994}}}
-
-Oravecz, Z., Tuerlinckx, F., & Vandekerckhove, J. (2011).
-A hierarchical latent stochastic differential equation model
-for affective dynamics.
-Psychological Methods,
-16 (4), 468–490.
-\ifelse{text}{doi:10.1037/a0024375 <https://doi.org/10.1037/a0024375>}{\ifelse{latex}{\href{https://doi.org/10.1037/a0024375}{doi:10.1037\out{\\slash{}}a0024375}}{\href{https://doi.org/10.1037/a0024375}{doi:10.1037/a0024375}}}
-
-Uhlenbeck, G. E., & Ornstein, L. S. (1930).
-On the theory of the brownian motion.
-Physical Review,
-36 (5), 823–841.
-\ifelse{text}{doi:10.1103/physrev.36.823 <https://doi.org/10.1103/physrev.36.823>}{\ifelse{latex}{\href{https://doi.org/10.1103/physrev.36.823}{doi:10.1103\out{\\slash{}}physrev.36.823}}{\href{https://doi.org/10.1103/physrev.36.823}{doi:10.1103/physrev.36.823}}}
+\doi{10.1080/10705511003661553}
 }
 \seealso{
 Other Simulation of State Space Models Data Functions: 
