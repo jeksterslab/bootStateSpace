@@ -77,7 +77,7 @@
 #' confint(pb, type = "bc")
 #' }
 #'
-#' @family Simulation of State Space Models Data Functions
+#' @family Bootstrap for State Space Models Functions
 #' @keywords bootStateSpace boot pb var
 #' @export
 PBSSMVARFixed <- function(R,
