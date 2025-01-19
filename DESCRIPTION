@@ -1,6 +1,6 @@
 Package: bootStateSpace
 Title: Bootstrap for State Space Models
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: 
     person(given = "Ivan Jacob Agaloos",
            family = "Pesigan",
@@ -20,11 +20,11 @@ License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 Depends: R (>= 3.5.0)
-Imports: stats, dynr, simStateSpace
-Suggests: knitr, rmarkdown, testthat, expm
+Imports: stats, simStateSpace, dynr
+Suggests: knitr, rmarkdown, testthat
 RoxygenNote: 7.3.2
 NeedsCompilation: no
-Packaged: 2025-01-18 22:47:02 UTC; root
+Packaged: 2025-01-19 00:49:09 UTC; root
 Author: Ivan Jacob Agaloos Pesigan [aut, cre, cph]
     (<https://orcid.org/0000-0003-4818-8420>)
 Maintainer: Ivan Jacob Agaloos Pesigan <r.jeksterslab@gmail.com>

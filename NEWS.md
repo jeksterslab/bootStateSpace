@@ -1,5 +1,5 @@
-# bootStateSpace 0.0.0.9000
+# bootStateSpace 1.0.0
 
 ## Patch
 
-* Latest development version.
+* Initial CRAN submission
