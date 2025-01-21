@@ -88,7 +88,7 @@
 #'   }
 #'
 #' @examples
-#' \dontest{
+#' \donttest{
 #' # prepare parameters
 #' set.seed(42)
 #' ## number of individuals
