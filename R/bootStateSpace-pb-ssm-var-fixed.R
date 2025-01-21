@@ -36,7 +36,7 @@
 #'   }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # prepare parameters
 #' ## number of individuals
 #' n <- 5
