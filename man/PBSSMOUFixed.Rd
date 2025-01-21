@@ -462,7 +462,7 @@ and, equivalently
 }
 }
 \examples{
-\dontrun{
+\donttest{
 # prepare parameters
 ## number of individuals
 n <- 5
@@ -501,9 +501,11 @@ lambda <- diag(k)
 theta <- 0.001 * diag(k)
 theta_l <- t(chol(theta))
 
+path <- tempdir()
+
 pb <- PBSSMOUFixed(
   R = 10L, # use at least 1000 in actual research
-  path = getwd(),
+  path = path,
   prefix = "ou",
   n = n,
   time = time,
