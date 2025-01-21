@@ -329,7 +329,7 @@ linking the covariates to the latent variables.
 }
 }
 \examples{
-\dontrun{
+\donttest{
 # prepare parameters
 ## number of individuals
 n <- 5
@@ -345,9 +345,11 @@ beta <- 0.50 * diag(p)
 psi <- 0.001 * diag(p)
 psi_l <- t(chol(psi))
 
+path <- tempdir()
+
 boot <- PBSSMVARFixed(
   R = 10L, # use at least 1000 in actual research
-  path = getwd(),
+  path = path,
   prefix = "var",
   n = n,
   time = time,
