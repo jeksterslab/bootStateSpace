@@ -347,7 +347,7 @@ psi_l <- t(chol(psi))
 
 path <- tempdir()
 
-boot <- PBSSMVARFixed(
+pb <- PBSSMVARFixed(
   R = 10L, # use at least 1000 in actual research
   path = path,
   prefix = "var",
