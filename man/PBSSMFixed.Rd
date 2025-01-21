@@ -502,6 +502,7 @@ set.seed(42)
 n <- 5
 ## time points
 time <- 50
+delta_t <- 1
 ## dynamic structure
 p <- 3
 mu0 <- rep(x = 0, times = p)
