@@ -88,7 +88,7 @@
 #'   }
 #'
 #' @examples
-#' \dontrun{
+#' \dontest{
 #' # prepare parameters
 #' set.seed(42)
 #' ## number of individuals
