@@ -88,7 +88,7 @@
 #'   }
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # prepare parameters
 #' set.seed(42)
 #' ## number of individuals
@@ -111,9 +111,11 @@
 #' theta <- 0.001 * diag(k)
 #' theta_l <- t(chol(theta))
 #'
+#' path <- tempdir()
+#'
 #' pb <- PBSSMFixed(
 #'   R = 10L, # use at least 1000 in actual research
-#'   path = getwd(),
+#'   path = path,
 #'   prefix = "ssm",
 #'   n = n,
 #'   time = time,

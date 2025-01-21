@@ -1,4 +1,4 @@
-# bootStateSpace 1.0.0
+# bootStateSpace 1.0.1
 
 ## Patch
 
