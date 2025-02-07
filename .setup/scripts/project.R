@@ -21,12 +21,15 @@ pkg_cran <- c(
   "Rcpp",
   "RcppArmadillo",
   "expm",
-  "lavaan"
+  "lavaan",
+  "simStateSpace"
 )
 
 # dynr has to be installed on the container used to build this repo
 
-pkg_github <- c()
+pkg_github <- c(
+  "jeksterslab/simStateSpace"
+)
 
 pkg_github_ref <- c()
 
