@@ -34,5 +34,5 @@
     }
   )
   names(output) <- prefix
-  return(output)
+  output
 }

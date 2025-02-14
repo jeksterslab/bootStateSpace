@@ -344,7 +344,5 @@ PBSSMLinSDEFixed <- function(R,
       )
     )
   }
-  return(
-    out
-  )
+  out
 }

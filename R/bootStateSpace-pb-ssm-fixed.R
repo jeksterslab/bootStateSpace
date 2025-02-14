@@ -383,7 +383,5 @@ PBSSMFixed <- function(R,
       )
     )
   }
-  return(
-    out
-  )
+  out
 }
