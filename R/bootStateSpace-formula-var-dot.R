@@ -23,23 +23,18 @@
     }
   )
   if (intercept) {
-    return(
-      lapply(
-        X = seq_len(length(formula)),
-        FUN = function(i) {
-          paste0(
-            formula[[i]],
-            " + ",
-            "alpha_",
-            i,
-            "_1"
-          )
-        }
-      )
-    )
-  } else {
-    return(
-      formula
+    formula <- lapply(
+      X = seq_len(length(formula)),
+      FUN = function(i) {
+        paste0(
+          formula[[i]],
+          " + ",
+          "alpha_",
+          i,
+          "_1"
+        )
+      }
     )
   }
+  formula
 }

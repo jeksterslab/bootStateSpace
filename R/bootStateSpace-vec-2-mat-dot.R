@@ -13,24 +13,21 @@
           "sigma0"
         )
       ) {
-        return(
-          .Vec2SymMat(
-            x = x,
-            prefix = prefix,
-            row_names = NULL,
-            col_names = NULL
-          )
+        out <- .Vec2SymMat(
+          x = x,
+          prefix = prefix,
+          row_names = NULL,
+          col_names = NULL
         )
       } else {
-        return(
-          .Vec2FullMat(
-            x = x,
-            prefix = prefix,
-            row_names = NULL,
-            col_names = NULL
-          )
+        out <- .Vec2FullMat(
+          x = x,
+          prefix = prefix,
+          row_names = NULL,
+          col_names = NULL
         )
       }
+      out
     }
   )
   names(output) <- prefix
