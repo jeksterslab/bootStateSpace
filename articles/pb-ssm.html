@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">bootStateSpace</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +61,7 @@
                         <h4 data-toc-skip class="author">Ivan Jacob
 Agaloos Pesigan</h4>
             
-            <h4 data-toc-skip class="date">2025-02-07</h4>
+            <h4 data-toc-skip class="date">2025-02-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/jeksterslab/bootStateSpace/blob/main/vignettes/pb-ssm.Rmd"><code>vignettes/pb-ssm.Rmd</code></a></small>
       <div class="d-none name"><code>pb-ssm.Rmd</code></div>
@@ -221,9 +221,9 @@ the covariance matrix of
 <h3 id="notation">Notation<a class="anchor" aria-label="anchor" href="#notation"></a>
 </h3>
 <p>Let
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>1000</mn></mrow><annotation encoding="application/x-tex">t = 1000</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">t = 100</annotation></semantics></math>
 be the number of time points and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">n = 100</annotation></semantics></math>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">n = 5</annotation></semantics></math>
 be the number of individuals.</p>
 <p>Let the measurement model intecept vector
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝛎</mi><annotation encoding="application/x-tex">\boldsymbol{\nu}</annotation></semantics></math>
@@ -343,9 +343,9 @@ be given by</p>
 </h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">n</span></span>
-<span><span class="co">#&gt; [1] 100</span></span>
+<span><span class="co">#&gt; [1] 5</span></span>
 <span><span class="va">time</span></span>
-<span><span class="co">#&gt; [1] 1000</span></span>
+<span><span class="co">#&gt; [1] 100</span></span>
 <span><span class="va">mu0</span></span>
 <span><span class="co">#&gt; [1] 0 0 0</span></span>
 <span><span class="va">sigma0</span></span>
@@ -397,7 +397,7 @@ be given by</p>
 <h3 id="parametric-bootstrap">Parametric Bootstrap<a class="anchor" aria-label="anchor" href="#parametric-bootstrap"></a>
 </h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">R</span> <span class="op">&lt;-</span> <span class="fl">1000L</span> <span class="co"># use at least 1000 in actual research</span></span>
+<code class="sourceCode R"><span><span class="va">R</span> <span class="op">&lt;-</span> <span class="fl">5L</span> <span class="co"># use at least 1000 in actual research</span></span>
 <span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">prefix</span> <span class="op">&lt;-</span> <span class="st">"ssm"</span></span></code></pre></div>
 <p>We use the <code>PBSSMFixed</code> function from the
@@ -437,62 +437,62 @@ multiple times is computationally intensive.</p>
 <span><span class="co">#&gt;     mu0 = mu0, sigma0_l = sigma0_l, alpha = alpha, beta = beta, </span></span>
 <span><span class="co">#&gt;     psi_l = psi_l, nu = nu, lambda = lambda, theta_l = theta_l, </span></span>
 <span><span class="co">#&gt;     ncores = parallel::detectCores(), seed = 42)</span></span>
-<span><span class="co">#&gt;             est     se    R    2.5%   97.5%</span></span>
-<span><span class="co">#&gt; beta_1_1    0.7 0.0088 1000  0.6819  0.7152</span></span>
-<span><span class="co">#&gt; beta_2_1    0.5 0.0082 1000  0.4829  0.5151</span></span>
-<span><span class="co">#&gt; beta_3_1   -0.1 0.0062 1000 -0.1119 -0.0879</span></span>
-<span><span class="co">#&gt; beta_1_2    0.0 0.0056 1000 -0.0102  0.0120</span></span>
-<span><span class="co">#&gt; beta_2_2    0.6 0.0072 1000  0.5860  0.6138</span></span>
-<span><span class="co">#&gt; beta_3_2    0.4 0.0062 1000  0.3878  0.4124</span></span>
-<span><span class="co">#&gt; beta_1_3    0.0 0.0041 1000 -0.0081  0.0076</span></span>
-<span><span class="co">#&gt; beta_2_3    0.0 0.0052 1000 -0.0104  0.0100</span></span>
-<span><span class="co">#&gt; beta_3_3    0.5 0.0065 1000  0.4865  0.5124</span></span>
-<span><span class="co">#&gt; psi_1_1     0.1 0.0029 1000  0.0952  0.1059</span></span>
-<span><span class="co">#&gt; psi_2_2     0.1 0.0024 1000  0.0950  0.1048</span></span>
-<span><span class="co">#&gt; psi_3_3     0.1 0.0029 1000  0.0944  0.1059</span></span>
-<span><span class="co">#&gt; theta_1_1   0.2 0.0025 1000  0.1946  0.2044</span></span>
-<span><span class="co">#&gt; theta_2_2   0.2 0.0023 1000  0.1953  0.2047</span></span>
-<span><span class="co">#&gt; theta_3_3   0.2 0.0029 1000  0.1943  0.2057</span></span>
-<span><span class="co">#&gt; mu0_1_1     0.0 0.1101 1000 -0.2247  0.2045</span></span>
-<span><span class="co">#&gt; mu0_2_1     0.0 0.1026 1000 -0.2032  0.1942</span></span>
-<span><span class="co">#&gt; mu0_3_1     0.0 0.1109 1000 -0.2265  0.2294</span></span>
-<span><span class="co">#&gt; sigma0_1_1  1.0 0.1548 1000  0.7272  1.3109</span></span>
-<span><span class="co">#&gt; sigma0_2_1  0.2 0.1117 1000 -0.0025  0.4297</span></span>
-<span><span class="co">#&gt; sigma0_3_1  0.2 0.1184 1000 -0.0253  0.4365</span></span>
-<span><span class="co">#&gt; sigma0_2_2  1.0 0.1640 1000  0.6820  1.3212</span></span>
-<span><span class="co">#&gt; sigma0_3_2  0.2 0.1221 1000 -0.0387  0.4387</span></span>
-<span><span class="co">#&gt; sigma0_3_3  1.0 0.1728 1000  0.6705  1.3611</span></span>
+<span><span class="co">#&gt;             est     se R    2.5%   97.5%</span></span>
+<span><span class="co">#&gt; beta_1_1    0.7 0.1288 5  0.5438  0.8285</span></span>
+<span><span class="co">#&gt; beta_2_1    0.5 0.2959 5  0.3568  1.0205</span></span>
+<span><span class="co">#&gt; beta_3_1   -0.1 0.0956 5 -0.2550 -0.0109</span></span>
+<span><span class="co">#&gt; beta_1_2    0.0 0.0665 5 -0.0567  0.1039</span></span>
+<span><span class="co">#&gt; beta_2_2    0.6 0.1310 5  0.3769  0.6835</span></span>
+<span><span class="co">#&gt; beta_3_2    0.4 0.0407 5  0.3697  0.4701</span></span>
+<span><span class="co">#&gt; beta_1_3    0.0 0.0424 5 -0.0664  0.0374</span></span>
+<span><span class="co">#&gt; beta_2_3    0.0 0.0150 5 -0.0405 -0.0026</span></span>
+<span><span class="co">#&gt; beta_3_3    0.5 0.0177 5  0.4814  0.5247</span></span>
+<span><span class="co">#&gt; psi_1_1     0.1 0.0489 5  0.0516  0.1702</span></span>
+<span><span class="co">#&gt; psi_2_2     0.1 0.0528 5  0.0358  0.1611</span></span>
+<span><span class="co">#&gt; psi_3_3     0.1 0.0298 5  0.0778  0.1470</span></span>
+<span><span class="co">#&gt; theta_1_1   0.2 0.0491 5  0.1339  0.2578</span></span>
+<span><span class="co">#&gt; theta_2_2   0.2 0.0306 5  0.1412  0.2172</span></span>
+<span><span class="co">#&gt; theta_3_3   0.2 0.0331 5  0.1468  0.2164</span></span>
+<span><span class="co">#&gt; mu0_1_1     0.0 0.7773 5 -1.0138  0.7519</span></span>
+<span><span class="co">#&gt; mu0_2_1     0.0 0.7376 5 -0.3907  1.3184</span></span>
+<span><span class="co">#&gt; mu0_3_1     0.0 0.2584 5 -0.1433  0.4668</span></span>
+<span><span class="co">#&gt; sigma0_1_1  1.0 0.2878 5  0.0839  0.7542</span></span>
+<span><span class="co">#&gt; sigma0_2_1  0.2 0.3557 5 -0.1238  0.7552</span></span>
+<span><span class="co">#&gt; sigma0_3_1  0.2 0.3736 5 -0.0824  0.8259</span></span>
+<span><span class="co">#&gt; sigma0_2_2  1.0 0.2910 5  0.3859  1.0215</span></span>
+<span><span class="co">#&gt; sigma0_3_2  0.2 0.4703 5 -0.2966  0.8652</span></span>
+<span><span class="co">#&gt; sigma0_3_3  1.0 0.5027 5  0.0947  1.2831</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">pb</span>, type <span class="op">=</span> <span class="st">"bc"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Call:</span></span>
 <span><span class="co">#&gt; PBSSMFixed(R = R, path = path, prefix = prefix, n = n, time = time, </span></span>
 <span><span class="co">#&gt;     mu0 = mu0, sigma0_l = sigma0_l, alpha = alpha, beta = beta, </span></span>
 <span><span class="co">#&gt;     psi_l = psi_l, nu = nu, lambda = lambda, theta_l = theta_l, </span></span>
 <span><span class="co">#&gt;     ncores = parallel::detectCores(), seed = 42)</span></span>
-<span><span class="co">#&gt;             est     se    R    2.5%   97.5%</span></span>
-<span><span class="co">#&gt; beta_1_1    0.7 0.0088 1000  0.6844  0.7181</span></span>
-<span><span class="co">#&gt; beta_2_1    0.5 0.0082 1000  0.4853  0.5178</span></span>
-<span><span class="co">#&gt; beta_3_1   -0.1 0.0062 1000 -0.1118 -0.0878</span></span>
-<span><span class="co">#&gt; beta_1_2    0.0 0.0056 1000 -0.0109  0.0105</span></span>
-<span><span class="co">#&gt; beta_2_2    0.6 0.0072 1000  0.5856  0.6133</span></span>
-<span><span class="co">#&gt; beta_3_2    0.4 0.0062 1000  0.3880  0.4126</span></span>
-<span><span class="co">#&gt; beta_1_3    0.0 0.0041 1000 -0.0075  0.0082</span></span>
-<span><span class="co">#&gt; beta_2_3    0.0 0.0052 1000 -0.0104  0.0102</span></span>
-<span><span class="co">#&gt; beta_3_3    0.5 0.0065 1000  0.4872  0.5132</span></span>
-<span><span class="co">#&gt; psi_1_1     0.1 0.0029 1000  0.0944  0.1054</span></span>
-<span><span class="co">#&gt; psi_2_2     0.1 0.0024 1000  0.0952  0.1050</span></span>
-<span><span class="co">#&gt; psi_3_3     0.1 0.0029 1000  0.0946  0.1059</span></span>
-<span><span class="co">#&gt; theta_1_1   0.2 0.0025 1000  0.1952  0.2047</span></span>
-<span><span class="co">#&gt; theta_2_2   0.2 0.0023 1000  0.1953  0.2047</span></span>
-<span><span class="co">#&gt; theta_3_3   0.2 0.0029 1000  0.1943  0.2057</span></span>
-<span><span class="co">#&gt; mu0_1_1     0.0 0.1101 1000 -0.2293  0.2009</span></span>
-<span><span class="co">#&gt; mu0_2_1     0.0 0.1026 1000 -0.2168  0.1812</span></span>
-<span><span class="co">#&gt; mu0_3_1     0.0 0.1109 1000 -0.2201  0.2360</span></span>
-<span><span class="co">#&gt; sigma0_1_1  1.0 0.1548 1000  0.7378  1.3404</span></span>
-<span><span class="co">#&gt; sigma0_2_1  0.2 0.1117 1000  0.0144  0.4538</span></span>
-<span><span class="co">#&gt; sigma0_3_1  0.2 0.1184 1000 -0.0203  0.4406</span></span>
-<span><span class="co">#&gt; sigma0_2_2  1.0 0.1640 1000  0.7111  1.3766</span></span>
-<span><span class="co">#&gt; sigma0_3_2  0.2 0.1221 1000 -0.0346  0.4533</span></span>
-<span><span class="co">#&gt; sigma0_3_3  1.0 0.1728 1000  0.7356  1.4296</span></span></code></pre></div>
+<span><span class="co">#&gt;             est     se R    2.5%   97.5%</span></span>
+<span><span class="co">#&gt; beta_1_1    0.7 0.1288 5  0.5566  0.8300</span></span>
+<span><span class="co">#&gt; beta_2_1    0.5 0.2959 5  0.4543  1.0820</span></span>
+<span><span class="co">#&gt; beta_3_1   -0.1 0.0956 5 -0.1271  0.0008</span></span>
+<span><span class="co">#&gt; beta_1_2    0.0 0.0665 5 -0.0635  0.0351</span></span>
+<span><span class="co">#&gt; beta_2_2    0.6 0.1310 5  0.3680  0.6753</span></span>
+<span><span class="co">#&gt; beta_3_2    0.4 0.0407 5  0.3677  0.4623</span></span>
+<span><span class="co">#&gt; beta_1_3    0.0 0.0424 5 -0.0360  0.0428</span></span>
+<span><span class="co">#&gt; beta_2_3    0.0 0.0150 5 -0.0007 -0.0007</span></span>
+<span><span class="co">#&gt; beta_3_3    0.5 0.0177 5  0.4800  0.5229</span></span>
+<span><span class="co">#&gt; psi_1_1     0.1 0.0489 5  0.0494  0.1610</span></span>
+<span><span class="co">#&gt; psi_2_2     0.1 0.0528 5  0.0315  0.1585</span></span>
+<span><span class="co">#&gt; psi_3_3     0.1 0.0298 5  0.0775  0.1414</span></span>
+<span><span class="co">#&gt; theta_1_1   0.2 0.0491 5  0.1442  0.2609</span></span>
+<span><span class="co">#&gt; theta_2_2   0.2 0.0306 5  0.1869  0.2191</span></span>
+<span><span class="co">#&gt; theta_3_3   0.2 0.0331 5  0.1469  0.2175</span></span>
+<span><span class="co">#&gt; mu0_1_1     0.0 0.7773 5 -1.0823  0.7320</span></span>
+<span><span class="co">#&gt; mu0_2_1     0.0 0.7376 5 -0.3956  1.1436</span></span>
+<span><span class="co">#&gt; mu0_3_1     0.0 0.2584 5 -0.1522  0.4342</span></span>
+<span><span class="co">#&gt; sigma0_1_1  1.0 0.2878 5  0.7568  0.7568</span></span>
+<span><span class="co">#&gt; sigma0_2_1  0.2 0.3557 5 -0.1380  0.6688</span></span>
+<span><span class="co">#&gt; sigma0_3_1  0.2 0.3736 5 -0.1005  0.7618</span></span>
+<span><span class="co">#&gt; sigma0_2_2  1.0 0.2910 5  0.6794  1.0247</span></span>
+<span><span class="co">#&gt; sigma0_3_2  0.2 0.4703 5 -0.3206  0.7819</span></span>
+<span><span class="co">#&gt; sigma0_3_3  1.0 0.5027 5  0.0547  1.2362</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2 unnumbered">
