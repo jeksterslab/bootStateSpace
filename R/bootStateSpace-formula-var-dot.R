@@ -14,13 +14,11 @@
         ")",
         collapse = " + "
       )
-      return(
-        paste0(
-          "eta_",
-          i,
-          " ~ ",
-          terms
-        )
+      paste0(
+        "eta_",
+        i,
+        " ~ ",
+        terms
       )
     }
   )

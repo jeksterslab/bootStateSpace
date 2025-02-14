@@ -295,7 +295,5 @@ PBSSMVARFixed <- function(R,
       )
     )
   }
-  return(
-    out
-  )
+  out
 }

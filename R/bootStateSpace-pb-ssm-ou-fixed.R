@@ -344,7 +344,5 @@ PBSSMOUFixed <- function(R,
       )
     )
   }
-  return(
-    out
-  )
+  out
 }
