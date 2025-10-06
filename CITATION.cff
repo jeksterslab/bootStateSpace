@@ -8,7 +8,7 @@ message: 'To cite package "bootStateSpace" in publications use:'
 type: software
 license: GPL-3.0-or-later
 title: 'bootStateSpace: Bootstrap for State Space Models'
-version: 1.0.2.9000
+version: 1.0.3
 doi: 10.1037/met0000779
 identifiers:
 - type: doi
@@ -43,7 +43,7 @@ preferred-citation:
   year: '2025'
   doi: 10.1037/met0000779
   journal: Psychological Methods
-  notes: R package version 1.0.2.9000
+  notes: R package version 1.0.3
 repository: https://CRAN.R-project.org/package=bootStateSpace
 repository-code: https://github.com/jeksterslab/bootStateSpace
 url: https://jeksterslab.github.io/bootStateSpace/
