@@ -391,74 +391,68 @@ multiple times is computationally intensive.</p>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">pb</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                est     se R    2.5%   97.5%</span></span>
-<span><span class="co">#&gt; phi_1_1    -0.3570 0.4284 5 -0.7240  0.3441</span></span>
-<span><span class="co">#&gt; phi_2_1     0.7710 0.3169 5  0.5240  1.2557</span></span>
-<span><span class="co">#&gt; phi_3_1    -0.4500 0.3141 5 -1.1758 -0.4300</span></span>
-<span><span class="co">#&gt; phi_1_2     0.0000 0.3057 5 -0.5064  0.2146</span></span>
-<span><span class="co">#&gt; phi_2_2    -0.5110 0.2084 5 -0.8481 -0.3499</span></span>
-<span><span class="co">#&gt; phi_3_2     0.7290 0.2045 5  0.7839  1.2785</span></span>
-<span><span class="co">#&gt; phi_1_3     0.0000 0.4429 5 -0.4745  0.6186</span></span>
-<span><span class="co">#&gt; phi_2_3     0.0000 0.1598 5 -0.1405  0.2260</span></span>
-<span><span class="co">#&gt; phi_3_3    -0.6930 0.1296 5 -1.0778 -0.7957</span></span>
-<span><span class="co">#&gt; sigma_1_1   0.2446 0.0737 5  0.1377  0.3087</span></span>
-<span><span class="co">#&gt; sigma_2_1   0.0220 0.0631 5 -0.0461  0.1090</span></span>
-<span><span class="co">#&gt; sigma_3_1  -0.0500 0.0303 5 -0.0774 -0.0074</span></span>
-<span><span class="co">#&gt; sigma_2_2   0.0707 0.0332 5  0.0513  0.1292</span></span>
-<span><span class="co">#&gt; sigma_3_2   0.0154 0.0126 5 -0.0022  0.0253</span></span>
-<span><span class="co">#&gt; sigma_3_3   0.0755 0.0303 5  0.0179  0.0841</span></span>
-<span><span class="co">#&gt; theta_1_1   0.2000 0.0169 5  0.1823  0.2206</span></span>
-<span><span class="co">#&gt; theta_2_2   0.2000 0.0147 5  0.1796  0.2136</span></span>
-<span><span class="co">#&gt; theta_3_3   0.2000 0.0162 5  0.1790  0.2146</span></span>
-<span><span class="co">#&gt; mu0_1_1     0.0000 0.3854 5 -0.2686  0.6503</span></span>
-<span><span class="co">#&gt; mu0_2_1     0.0000 0.6051 5 -0.3159  1.0168</span></span>
-<span><span class="co">#&gt; mu0_3_1     0.0000 0.4762 5 -0.4711  0.6354</span></span>
-<span><span class="co">#&gt; sigma0_1_1  1.0000 0.5298 5  0.1373  1.3528</span></span>
-<span><span class="co">#&gt; sigma0_2_1  0.2000 0.4902 5 -0.2125  0.9424</span></span>
-<span><span class="co">#&gt; sigma0_3_1  0.2000 0.4747 5 -0.6587  0.3314</span></span>
-<span><span class="co">#&gt; sigma0_2_2  1.0000 0.5455 5  0.5187  1.7067</span></span>
-<span><span class="co">#&gt; sigma0_3_2  0.2000 0.2716 5 -0.4548  0.1614</span></span>
-<span><span class="co">#&gt; sigma0_3_3  1.0000 0.2389 5  0.6151  1.1881</span></span>
+<span><span class="co">#&gt; phi_1_1    -0.3570 0.4486 5 -0.7973  0.3399</span></span>
+<span><span class="co">#&gt; phi_2_1     0.7710 0.2910 5  0.6548  1.3279</span></span>
+<span><span class="co">#&gt; phi_3_1    -0.4500 0.4397 5 -0.8355  0.2176</span></span>
+<span><span class="co">#&gt; phi_1_2     0.0000 0.3277 5 -0.6802 -0.0072</span></span>
+<span><span class="co">#&gt; phi_2_2    -0.5110 0.2047 5 -0.9874 -0.4927</span></span>
+<span><span class="co">#&gt; phi_3_2     0.7290 0.2930 5  0.3193  1.0253</span></span>
+<span><span class="co">#&gt; phi_1_3     0.0000 0.3180 5 -0.2755  0.4568</span></span>
+<span><span class="co">#&gt; phi_2_3     0.0000 0.2186 5 -0.0350  0.4972</span></span>
+<span><span class="co">#&gt; phi_3_3    -0.6930 0.2138 5 -0.9163 -0.4852</span></span>
+<span><span class="co">#&gt; sigma_1_1   0.2446 0.0897 5  0.1480  0.3421</span></span>
+<span><span class="co">#&gt; sigma_2_1   0.0220 0.0395 5 -0.0357  0.0616</span></span>
+<span><span class="co">#&gt; sigma_3_1  -0.0500 0.0413 5 -0.1198 -0.0234</span></span>
+<span><span class="co">#&gt; sigma_2_2   0.0707 0.0392 5  0.0219  0.1030</span></span>
+<span><span class="co">#&gt; sigma_3_2   0.0154 0.0160 5  0.0018  0.0385</span></span>
+<span><span class="co">#&gt; sigma_3_3   0.0755 0.0110 5  0.0431  0.0667</span></span>
+<span><span class="co">#&gt; theta_1_1   0.2000 0.0162 5  0.1817  0.2216</span></span>
+<span><span class="co">#&gt; theta_2_2   0.2000 0.0179 5  0.1884  0.2303</span></span>
+<span><span class="co">#&gt; theta_3_3   0.2000 0.0252 5  0.1659  0.2223</span></span>
+<span><span class="co">#&gt; mu0_1_1     0.0000 0.5015 5 -0.4831  0.7255</span></span>
+<span><span class="co">#&gt; mu0_2_1     0.0000 0.4270 5 -0.5822  0.4371</span></span>
+<span><span class="co">#&gt; mu0_3_1     0.0000 0.2063 5 -0.3230  0.2028</span></span>
+<span><span class="co">#&gt; sigma0_1_1  1.0000 0.8732 5  0.2205  2.2461</span></span>
+<span><span class="co">#&gt; sigma0_2_1  0.2000 0.5502 5 -0.7946  0.4052</span></span>
+<span><span class="co">#&gt; sigma0_3_1  0.2000 0.2022 5  0.0351  0.4912</span></span>
+<span><span class="co">#&gt; sigma0_2_2  1.0000 0.5088 5  0.2826  1.5124</span></span>
+<span><span class="co">#&gt; sigma0_3_2  0.2000 0.3787 5 -0.1248  0.7365</span></span>
+<span><span class="co">#&gt; sigma0_3_3  1.0000 0.3225 5  0.1380  0.7796</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">pb</span>, type <span class="op">=</span> <span class="st">"bc"</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                est     se R    2.5%   97.5%</span></span>
-<span><span class="co">#&gt; phi_1_1    -0.3570 0.4284 5 -0.7447  0.2187</span></span>
-<span><span class="co">#&gt; phi_2_1     0.7710 0.3169 5  0.4926  1.0571</span></span>
-<span><span class="co">#&gt; phi_3_1    -0.4500 0.3141 5 -0.7258 -0.4148</span></span>
-<span><span class="co">#&gt; phi_1_2     0.0000 0.3057 5 -0.5312  0.1983</span></span>
-<span><span class="co">#&gt; phi_2_2    -0.5110 0.2084 5 -0.7162 -0.3162</span></span>
-<span><span class="co">#&gt; phi_3_2     0.7290 0.2045 5  0.7756  0.7756</span></span>
-<span><span class="co">#&gt; phi_1_3     0.0000 0.4429 5 -0.4052  0.6501</span></span>
-<span><span class="co">#&gt; phi_2_3     0.0000 0.1598 5 -0.1617  0.1842</span></span>
-<span><span class="co">#&gt; phi_3_3    -0.6930 0.1296 5 -0.7945 -0.7945</span></span>
-<span><span class="co">#&gt; sigma_1_1   0.2446 0.0737 5  0.1427  0.3138</span></span>
-<span><span class="co">#&gt; sigma_2_1   0.0220 0.0631 5  0.0005  0.1189</span></span>
-<span><span class="co">#&gt; sigma_3_1  -0.0500 0.0303 5 -0.0785 -0.0112</span></span>
-<span><span class="co">#&gt; sigma_2_2   0.0707 0.0332 5  0.0500  0.1256</span></span>
-<span><span class="co">#&gt; sigma_3_2   0.0154 0.0126 5 -0.0004  0.0265</span></span>
-<span><span class="co">#&gt; sigma_3_3   0.0755 0.0303 5  0.0215  0.0898</span></span>
-<span><span class="co">#&gt; theta_1_1   0.2000 0.0169 5  0.1836  0.2211</span></span>
-<span><span class="co">#&gt; theta_2_2   0.2000 0.0147 5  0.1815  0.2140</span></span>
-<span><span class="co">#&gt; theta_3_3   0.2000 0.0162 5  0.1796  0.2152</span></span>
-<span><span class="co">#&gt; mu0_1_1     0.0000 0.3854 5 -0.2781  0.5797</span></span>
-<span><span class="co">#&gt; mu0_2_1     0.0000 0.6051 5 -0.2988  1.0976</span></span>
-<span><span class="co">#&gt; mu0_3_1     0.0000 0.4762 5 -0.4524  0.6652</span></span>
-<span><span class="co">#&gt; sigma0_1_1  1.0000 0.5298 5  0.3196  1.4433</span></span>
-<span><span class="co">#&gt; sigma0_2_1  0.2000 0.4902 5 -0.2215  0.8425</span></span>
-<span><span class="co">#&gt; sigma0_3_1  0.2000 0.4747 5 -0.6375  0.3410</span></span>
-<span><span class="co">#&gt; sigma0_2_2  1.0000 0.5455 5  0.5995  1.8152</span></span>
-<span><span class="co">#&gt; sigma0_3_2  0.2000 0.2716 5  0.1749  0.1749</span></span>
-<span><span class="co">#&gt; sigma0_3_3  1.0000 0.2389 5  0.6464  1.1981</span></span></code></pre></div>
+<span><span class="co">#&gt; phi_1_1    -0.3570 0.4486 5 -0.8291  0.2139</span></span>
+<span><span class="co">#&gt; phi_2_1     0.7710 0.2910 5  0.6496  1.2805</span></span>
+<span><span class="co">#&gt; phi_3_1    -0.4500 0.4397 5 -0.8446  0.0866</span></span>
+<span><span class="co">#&gt; phi_1_2     0.0000 0.3277 5 -0.0071 -0.0071</span></span>
+<span><span class="co">#&gt; phi_2_2    -0.5110 0.2047 5 -0.7998 -0.4818</span></span>
+<span><span class="co">#&gt; phi_3_2     0.7290 0.2930 5  0.3934  1.0322</span></span>
+<span><span class="co">#&gt; phi_1_3     0.0000 0.3180 5 -0.2624  0.4749</span></span>
+<span><span class="co">#&gt; phi_2_3     0.0000 0.2186 5 -0.0438  0.2136</span></span>
+<span><span class="co">#&gt; phi_3_3    -0.6930 0.2138 5 -0.9168 -0.4901</span></span>
+<span><span class="co">#&gt; sigma_1_1   0.2446 0.0897 5  0.1490  0.3467</span></span>
+<span><span class="co">#&gt; sigma_2_1   0.0220 0.0395 5 -0.0084  0.0663</span></span>
+<span><span class="co">#&gt; sigma_3_1  -0.0500 0.0413 5 -0.1276 -0.0409</span></span>
+<span><span class="co">#&gt; sigma_2_2   0.0707 0.0392 5  0.0210  0.1028</span></span>
+<span><span class="co">#&gt; sigma_3_2   0.0154 0.0160 5  0.0016  0.0365</span></span>
+<span><span class="co">#&gt; sigma_3_3   0.0755 0.0110 5  0.0669  0.0669</span></span>
+<span><span class="co">#&gt; theta_1_1   0.2000 0.0162 5  0.1937  0.2244</span></span>
+<span><span class="co">#&gt; theta_2_2   0.2000 0.0179 5  0.1875  0.2283</span></span>
+<span><span class="co">#&gt; theta_3_3   0.2000 0.0252 5  0.1663  0.2236</span></span>
+<span><span class="co">#&gt; mu0_1_1     0.0000 0.5015 5 -0.4404  0.7668</span></span>
+<span><span class="co">#&gt; mu0_2_1     0.0000 0.4270 5 -0.6532  0.1838</span></span>
+<span><span class="co">#&gt; mu0_3_1     0.0000 0.2063 5 -0.1055  0.2297</span></span>
+<span><span class="co">#&gt; sigma0_1_1  1.0000 0.8732 5  0.2392  2.3293</span></span>
+<span><span class="co">#&gt; sigma0_2_1  0.2000 0.5502 5 -0.8272  0.4018</span></span>
+<span><span class="co">#&gt; sigma0_3_1  0.2000 0.2022 5  0.0352  0.5134</span></span>
+<span><span class="co">#&gt; sigma0_2_2  1.0000 0.5088 5  0.3294  1.5493</span></span>
+<span><span class="co">#&gt; sigma0_3_2  0.2000 0.3787 5 -0.1110  0.7647</span></span>
+<span><span class="co">#&gt; sigma0_3_3  1.0000 0.3225 5  0.7842  0.7842</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2 unnumbered">
 <h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
-<div id="ref-Chow-Ho-Hamaker-etal-2010" class="csl-entry">
-Chow, S.-M., Ho, M. R., Hamaker, E. L., &amp; Dolan, C. V. (2010).
-Equivalence and differences between structural equation modeling and
-state-space modeling techniques. <em>Structural Equation Modeling: A
-Multidisciplinary Journal</em>, <em>17</em>(2), 303–332. <a href="https://doi.org/10.1080/10705511003661553" class="external-link">https://doi.org/10.1080/10705511003661553</a>
-</div>
 <div id="ref-Chow-Losardo-Park-etal-2023" class="csl-entry">
 Chow, S.-M., Losardo, D., Park, J., &amp; Molenaar, P. C. M. (2023).
 Continuous-time dynamic models: Connections to structural equation
@@ -480,6 +474,11 @@ dynamics. <em>Psychological Methods</em>, <em>16</em>(4), 468–490. <a href="ht
 Ou, L., Hunter, M. D., &amp; Chow, S.-M. (2019). What’s for <span class="nocase">dynr</span>: A package for linear and nonlinear dynamic
 modeling in <span>R</span>. <em>The R Journal</em>, <em>11</em>(1), 91.
 <a href="https://doi.org/10.32614/rj-2019-012" class="external-link">https://doi.org/10.32614/rj-2019-012</a>
+</div>
+<div id="ref-Pesigan-Russell-Chow-2025a" class="csl-entry">
+Pesigan, I. J. A., Russell, M. A., &amp; Chow, S.-M. (2025). Inferences
+and effect sizes for direct, indirect, and total effects in
+continuous-time mediation models. <em>Psychological Methods</em>. <a href="https://doi.org/10.1037/met0000779" class="external-link">https://doi.org/10.1037/met0000779</a>
 </div>
 <div id="ref-RCoreTeam-2024" class="csl-entry">
 R Core Team. (2024). <em><span>R</span>: A language and environment for

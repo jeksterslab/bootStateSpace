@@ -432,73 +432,72 @@ multiple times is computationally intensive.</p>
 <span>  seed <span class="op">=</span> <span class="fl">42</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">pb</span><span class="op">)</span></span>
-<span><span class="co">#&gt;             est     se R    2.5%   97.5%</span></span>
-<span><span class="co">#&gt; beta_1_1    0.7 0.1363 5  0.5937  0.9008</span></span>
-<span><span class="co">#&gt; beta_2_1    0.5 0.0287 5  0.4534  0.5154</span></span>
-<span><span class="co">#&gt; beta_3_1   -0.1 0.1437 5 -0.3193 -0.0011</span></span>
-<span><span class="co">#&gt; beta_1_2    0.0 0.1039 5 -0.1424  0.0844</span></span>
-<span><span class="co">#&gt; beta_2_2    0.6 0.0535 5  0.5644  0.6874</span></span>
-<span><span class="co">#&gt; beta_3_2    0.4 0.1598 5  0.2209  0.5944</span></span>
-<span><span class="co">#&gt; beta_1_3    0.0 0.0288 5 -0.0483  0.0180</span></span>
-<span><span class="co">#&gt; beta_2_3    0.0 0.0958 5 -0.1641  0.0562</span></span>
-<span><span class="co">#&gt; beta_3_3    0.5 0.1491 5  0.3844  0.7000</span></span>
-<span><span class="co">#&gt; psi_1_1     0.1 0.0187 5  0.0585  0.1033</span></span>
-<span><span class="co">#&gt; psi_2_2     0.1 0.0422 5  0.0425  0.1474</span></span>
-<span><span class="co">#&gt; psi_3_3     0.1 0.0328 5  0.0282  0.0990</span></span>
-<span><span class="co">#&gt; theta_1_1   0.2 0.0243 5  0.1721  0.2301</span></span>
-<span><span class="co">#&gt; theta_2_2   0.2 0.0231 5  0.1664  0.2174</span></span>
-<span><span class="co">#&gt; theta_3_3   0.2 0.0485 5  0.1603  0.2795</span></span>
-<span><span class="co">#&gt; mu0_1_1     0.0 0.5616 5 -0.1683  1.0616</span></span>
-<span><span class="co">#&gt; mu0_2_1     0.0 0.4962 5 -0.5571  0.4212</span></span>
-<span><span class="co">#&gt; mu0_3_1     0.0 0.3990 5 -0.8679  0.0751</span></span>
-<span><span class="co">#&gt; sigma0_1_1  1.0 1.0051 5  0.2568  2.6671</span></span>
-<span><span class="co">#&gt; sigma0_2_1  0.2 0.6396 5  0.0040  1.5782</span></span>
-<span><span class="co">#&gt; sigma0_3_1  0.2 0.4803 5 -0.2704  0.8457</span></span>
-<span><span class="co">#&gt; sigma0_2_2  1.0 0.5771 5  0.4348  1.8722</span></span>
-<span><span class="co">#&gt; sigma0_3_2  0.2 0.6329 5 -0.5542  1.0068</span></span>
-<span><span class="co">#&gt; sigma0_3_3  1.0 0.2828 5  0.1041  0.7245</span></span>
+<span><span class="co">#&gt;             est     se R    2.5%  97.5%</span></span>
+<span><span class="co">#&gt; beta_1_1    0.7 0.0875 5  0.7244 0.9407</span></span>
+<span><span class="co">#&gt; beta_2_1    0.5 0.1382 5  0.4694 0.7931</span></span>
+<span><span class="co">#&gt; beta_3_1   -0.1 0.2469 5 -0.5574 0.0412</span></span>
+<span><span class="co">#&gt; beta_1_2    0.0 0.0585 5 -0.1224 0.0209</span></span>
+<span><span class="co">#&gt; beta_2_2    0.6 0.0938 5  0.3955 0.6009</span></span>
+<span><span class="co">#&gt; beta_3_2    0.4 0.2133 5  0.2779 0.7556</span></span>
+<span><span class="co">#&gt; beta_1_3    0.0 0.0409 5 -0.0691 0.0239</span></span>
+<span><span class="co">#&gt; beta_2_3    0.0 0.0729 5 -0.0519 0.1157</span></span>
+<span><span class="co">#&gt; beta_3_3    0.5 0.2220 5  0.1874 0.7051</span></span>
+<span><span class="co">#&gt; psi_1_1     0.1 0.0202 5  0.0384 0.0891</span></span>
+<span><span class="co">#&gt; psi_2_2     0.1 0.0414 5  0.0410 0.1463</span></span>
+<span><span class="co">#&gt; psi_3_3     0.1 0.1162 5  0.0504 0.3040</span></span>
+<span><span class="co">#&gt; theta_1_1   0.2 0.0268 5  0.2003 0.2648</span></span>
+<span><span class="co">#&gt; theta_2_2   0.2 0.0478 5  0.1271 0.2480</span></span>
+<span><span class="co">#&gt; theta_3_3   0.2 0.0952 5  0.0200 0.2236</span></span>
+<span><span class="co">#&gt; mu0_1_1     0.0 0.4490 5 -0.3326 0.7779</span></span>
+<span><span class="co">#&gt; mu0_2_1     0.0 0.8628 5 -0.6283 1.2390</span></span>
+<span><span class="co">#&gt; mu0_3_1     0.0 0.6381 5 -0.8047 0.7051</span></span>
+<span><span class="co">#&gt; sigma0_1_1  1.0 1.0951 5  0.3701 2.8050</span></span>
+<span><span class="co">#&gt; sigma0_2_1  0.2 0.8772 5 -0.5274 1.6697</span></span>
+<span><span class="co">#&gt; sigma0_3_1  0.2 0.5160 5 -0.3677 0.8513</span></span>
+<span><span class="co">#&gt; sigma0_2_2  1.0 0.6371 5  0.1735 1.5174</span></span>
+<span><span class="co">#&gt; sigma0_3_2  0.2 0.7391 5 -0.4253 1.3654</span></span>
+<span><span class="co">#&gt; sigma0_3_3  1.0 0.9435 5  0.2444 2.2921</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">pb</span>, type <span class="op">=</span> <span class="st">"bc"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;             est     se R    2.5%   97.5%</span></span>
-<span><span class="co">#&gt; beta_1_1    0.7 0.1363 5  0.5886  0.8935</span></span>
-<span><span class="co">#&gt; beta_2_1    0.5 0.0287 5  0.4530  0.5127</span></span>
-<span><span class="co">#&gt; beta_3_1   -0.1 0.1437 5 -0.3445 -0.0222</span></span>
-<span><span class="co">#&gt; beta_1_2    0.0 0.1039 5 -0.1350  0.0855</span></span>
-<span><span class="co">#&gt; beta_2_2    0.6 0.0535 5  0.5621  0.6826</span></span>
-<span><span class="co">#&gt; beta_3_2    0.4 0.1598 5  0.2246  0.6097</span></span>
-<span><span class="co">#&gt; beta_1_3    0.0 0.0288 5 -0.0389  0.0231</span></span>
-<span><span class="co">#&gt; beta_2_3    0.0 0.0958 5 -0.1516  0.0580</span></span>
-<span><span class="co">#&gt; beta_3_3    0.5 0.1491 5  0.3821  0.6963</span></span>
-<span><span class="co">#&gt; psi_1_1     0.1 0.0187 5  0.0700  0.1049</span></span>
-<span><span class="co">#&gt; psi_2_2     0.1 0.0422 5  0.0791  0.1537</span></span>
-<span><span class="co">#&gt; psi_3_3     0.1 0.0328 5  0.0993  0.0993</span></span>
-<span><span class="co">#&gt; theta_1_1   0.2 0.0243 5  0.1685  0.2145</span></span>
-<span><span class="co">#&gt; theta_2_2   0.2 0.0231 5  0.1642  0.2170</span></span>
-<span><span class="co">#&gt; theta_3_3   0.2 0.0485 5  0.1580  0.2714</span></span>
-<span><span class="co">#&gt; mu0_1_1     0.0 0.5616 5 -0.1588  1.1077</span></span>
-<span><span class="co">#&gt; mu0_2_1     0.0 0.4962 5 -0.5582  0.4158</span></span>
-<span><span class="co">#&gt; mu0_3_1     0.0 0.3990 5 -0.2410  0.0884</span></span>
-<span><span class="co">#&gt; sigma0_1_1  1.0 1.0051 5  0.3358  2.7891</span></span>
-<span><span class="co">#&gt; sigma0_2_1  0.2 0.6396 5 -0.0396  0.5479</span></span>
-<span><span class="co">#&gt; sigma0_3_1  0.2 0.4803 5 -0.2616  0.8954</span></span>
-<span><span class="co">#&gt; sigma0_2_2  1.0 0.5771 5  0.5299  1.9421</span></span>
-<span><span class="co">#&gt; sigma0_3_2  0.2 0.6329 5 -0.4828  1.0625</span></span>
-<span><span class="co">#&gt; sigma0_3_3  1.0 0.2828 5  0.7387  0.7387</span></span></code></pre></div>
+<span><span class="co">#&gt;             est     se R    2.5%  97.5%</span></span>
+<span><span class="co">#&gt; beta_1_1    0.7 0.0875 5  0.7194 0.7194</span></span>
+<span><span class="co">#&gt; beta_2_1    0.5 0.1382 5  0.4680 0.7631</span></span>
+<span><span class="co">#&gt; beta_3_1   -0.1 0.2469 5 -0.4791 0.0487</span></span>
+<span><span class="co">#&gt; beta_1_2    0.0 0.0585 5 -0.0351 0.0238</span></span>
+<span><span class="co">#&gt; beta_2_2    0.6 0.0938 5  0.5333 0.6013</span></span>
+<span><span class="co">#&gt; beta_3_2    0.4 0.2133 5  0.2811 0.7824</span></span>
+<span><span class="co">#&gt; beta_1_3    0.0 0.0409 5 -0.0552 0.0241</span></span>
+<span><span class="co">#&gt; beta_2_3    0.0 0.0729 5 -0.0541 0.1066</span></span>
+<span><span class="co">#&gt; beta_3_3    0.5 0.2220 5  0.1692 0.6900</span></span>
+<span><span class="co">#&gt; psi_1_1     0.1 0.0202 5  0.0909 0.0909</span></span>
+<span><span class="co">#&gt; psi_2_2     0.1 0.0414 5  0.0490 0.1499</span></span>
+<span><span class="co">#&gt; psi_3_3     0.1 0.1162 5  0.0737 0.3274</span></span>
+<span><span class="co">#&gt; theta_1_1   0.2 0.0268 5  0.1992 0.2364</span></span>
+<span><span class="co">#&gt; theta_2_2   0.2 0.0478 5  0.1714 0.2539</span></span>
+<span><span class="co">#&gt; theta_3_3   0.2 0.0952 5  0.0054 0.2213</span></span>
+<span><span class="co">#&gt; mu0_1_1     0.0 0.4490 5 -0.3557 0.6879</span></span>
+<span><span class="co">#&gt; mu0_2_1     0.0 0.8628 5 -0.6557 1.2316</span></span>
+<span><span class="co">#&gt; mu0_3_1     0.0 0.6381 5 -0.8571 0.6784</span></span>
+<span><span class="co">#&gt; sigma0_1_1  1.0 1.0951 5  0.6458 3.0259</span></span>
+<span><span class="co">#&gt; sigma0_2_1  0.2 0.8772 5 -0.5790 1.4478</span></span>
+<span><span class="co">#&gt; sigma0_3_1  0.2 0.5160 5 -0.3473 0.8945</span></span>
+<span><span class="co">#&gt; sigma0_2_2  1.0 0.6371 5  0.1854 1.5323</span></span>
+<span><span class="co">#&gt; sigma0_3_2  0.2 0.7391 5 -0.4481 1.1281</span></span>
+<span><span class="co">#&gt; sigma0_3_3  1.0 0.9435 5  0.3912 2.4841</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2 unnumbered">
 <h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
-<div id="ref-Chow-Ho-Hamaker-etal-2010" class="csl-entry">
-Chow, S.-M., Ho, M. R., Hamaker, E. L., &amp; Dolan, C. V. (2010).
-Equivalence and differences between structural equation modeling and
-state-space modeling techniques. <em>Structural Equation Modeling: A
-Multidisciplinary Journal</em>, <em>17</em>(2), 303–332. <a href="https://doi.org/10.1080/10705511003661553" class="external-link">https://doi.org/10.1080/10705511003661553</a>
-</div>
 <div id="ref-Ou-Hunter-Chow-2019" class="csl-entry">
 Ou, L., Hunter, M. D., &amp; Chow, S.-M. (2019). What’s for <span class="nocase">dynr</span>: A package for linear and nonlinear dynamic
 modeling in <span>R</span>. <em>The R Journal</em>, <em>11</em>(1), 91.
 <a href="https://doi.org/10.32614/rj-2019-012" class="external-link">https://doi.org/10.32614/rj-2019-012</a>
+</div>
+<div id="ref-Pesigan-Russell-Chow-2025a" class="csl-entry">
+Pesigan, I. J. A., Russell, M. A., &amp; Chow, S.-M. (2025). Inferences
+and effect sizes for direct, indirect, and total effects in
+continuous-time mediation models. <em>Psychological Methods</em>. <a href="https://doi.org/10.1037/met0000779" class="external-link">https://doi.org/10.1037/met0000779</a>
 </div>
 <div id="ref-RCoreTeam-2024" class="csl-entry">
 R Core Team. (2024). <em><span>R</span>: A language and environment for
