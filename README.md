@@ -6,6 +6,7 @@ Ivan Jacob Agaloos Pesigan
 
 <!-- badges: start -->
 
+[![DOI](https://zenodo.org/badge/DOI/10.1037/met0000779.svg)](https://doi.org/10.1037/met0000779)
 [![CRAN
 Status](https://www.r-pkg.org/badges/version/bootStateSpace)](https://cran.r-project.org/package=bootStateSpace)
 [![R-Universe
@@ -32,9 +33,9 @@ Check](https://github.com/jeksterslab/bootStateSpace/actions/workflows/shellchec
 Provides a streamlined and user-friendly framework for bootstrapping in
 state space models, particularly when the number of subjects/units (n)
 exceeds one, a scenario commonly encountered in social and behavioral
-sciences. For an introduction to state space models in social and
-behavioral sciences, refer to Chow, Ho, Hamaker, and Dolan (2010:
-<https://doi.org/10.1080/10705511003661553>).
+sciences. The parametric bootstrap implemented here was developed and
+applied in Pesigan, Russell, and Chow (2025:
+<https://doi.org/10.1037/met0000779>).
 
 ## Installation
 
@@ -57,6 +58,11 @@ remotes::install_github("jeksterslab/bootStateSpace")
 See [GitHub Pages](https://jeksterslab.github.io/bootStateSpace) for
 package documentation.
 
+## Citation
+
+To cite `bootStateSpace` in publications, please cite Pesigan et al.
+(2025).
+
 ## References
 
 <div id="refs" class="references csl-bib-body hanging-indent"
@@ -72,9 +78,18 @@ Multidisciplinary Journal*, *17*(2), 303–332.
 
 </div>
 
-<div id="ref-RCoreTeam-2024" class="csl-entry">
+<div id="ref-Pesigan-Russell-Chow-2025a" class="csl-entry">
 
-R Core Team. (2024). *R: A language and environment for statistical
+Pesigan, I. J. A., Russell, M. A., & Chow, S.-M. (2025). Inferences and
+effect sizes for direct, indirect, and total effects in continuous-time
+mediation models. *Psychological Methods*.
+<https://doi.org/10.1037/met0000779>
+
+</div>
+
+<div id="ref-RCoreTeam-2025" class="csl-entry">
+
+R Core Team. (2025). *R: A language and environment for statistical
 computing*. R Foundation for Statistical Computing.
 <https://www.R-project.org/>
 

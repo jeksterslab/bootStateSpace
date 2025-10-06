@@ -83,34 +83,40 @@ summary.bootstatespace <- function(object,
                                    type = "pc",
                                    digits = 4,
                                    ...) {
-  cat("Call:\n")
-  base::print(object$call)
-  if (object$method == "parametric") {
-    if (interactive()) {
-      # nocov start
-      cat(
-        paste0(
-          "\n",
-          "Parametric bootstrap confidence intervals.",
-          "\n",
-          "type = ",
-          "\"",
-          type,
-          "\"",
-          "\n"
+  if (interactive()) {
+    # nocov start
+    cat("Call:\n")
+    base::print(object$call)
+    if (object$method == "parametric") {
+      if (interactive()) {
+        cat(
+          paste0(
+            "\n",
+            "Parametric bootstrap confidence intervals.",
+            "\n",
+            "type = ",
+            "\"",
+            type,
+            "\"",
+            "\n"
+          )
         )
-      )
-      # nocov end
+      }
     }
+    # nocov end
   }
-  round(
-    .PBCI(
-      object = object,
-      alpha = alpha,
-      type = type
-    ),
-    digits = digits
+  ci <- .PBCI(
+    object = object,
+    alpha = alpha,
+    type = type
   )
+  if (!is.null(digits)) {
+    ci <- round(
+      x = ci,
+      digits = digits
+    )
+  }
+  ci
 }
 
 #' Sampling Variance-Covariance Matrix Method for an Object of Class

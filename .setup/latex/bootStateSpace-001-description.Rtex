@@ -75,12 +75,7 @@
 
 \section*{Description}
 
-Provides a streamlined and user-friendly framework
-for bootstrapping in state space models,
-particularly when the number of subjects/units ($n$) exceeds one,
-a scenario commonly encountered in social and behavioral sciences.
-For an introduction to state space models in social and behavioral sciences,
-refer to \Textcite{Chow-Ho-Hamaker-etal-2010}.
+Provides a streamlined and user-friendly framework for bootstrapping in state space models, particularly when the number of subjects/units (n) exceeds one, a scenario commonly encountered in social and behavioral sciences. The parametric bootstrap implemented here was developed and applied in \Textcite{Pesigan-Russell-Chow-2025a}.
 
 \section*{Installation}
 
@@ -102,7 +97,9 @@ See
 \href{https://jeksterslab.github.io/bootStateSpace/index.html}{GitHub Pages}
 for package documentation.
 
-\nocite{RCoreTeam-2024}
+\nocite{RCoreTeam-2025}
+
+\nocite{Pesigan-Russell-Chow-2025a}
 
 \printbibliography
 
