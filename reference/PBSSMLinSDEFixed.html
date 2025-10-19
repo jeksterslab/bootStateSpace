@@ -23,7 +23,7 @@ type = 0."><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/m
 
     <a class="navbar-brand me-2" href="../index.html">bootStateSpace</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.3.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -670,7 +670,7 @@ and state-space modeling techniques.
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># prepare parameters</span></span></span>
 <span class="r-in"><span><span class="co">## number of individuals</span></span></span>
 <span class="r-in"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">5</span></span></span>
@@ -731,196 +731,14 @@ and state-space modeling techniques.
 <span class="r-in"><span>  seed <span class="op">=</span> <span class="fl">42</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">pb</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> PBSSMLinSDEFixed(R = 10L, path = path, prefix = "lse", n = n, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     time = time, delta_t = delta_t, mu0 = mu0, sigma0_l = sigma0_l, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     iota = iota, phi = phi, sigma_l = sigma_l, nu = nu, lambda = lambda, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     theta_l = theta_l, type = 0, ncores = 1, seed = 42)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Parametric bootstrap confidence intervals.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> type = "pc"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               est     se  R    2.5%   97.5%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_1    -0.100 0.1246 10 -0.4078 -0.0207</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_1     0.050 0.2169 10 -0.1814  0.3589</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_2     0.050 0.2564 10 -0.1668  0.5460</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_2    -0.100 0.2802 10 -0.7522  0.0739</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_1_1    0.317 0.7735 10 -1.4508  0.8892</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_2_1    0.230 0.9179 10 -0.7594  1.8707</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_1_1   2.790 0.2025 10  2.4148  2.9673</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_1   0.060 0.1534 10 -0.2464  0.2022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_2   3.270 0.1902 10  2.9992  3.4952</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_1_1   0.001 0.0008 10  0.0000  0.0022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_2_2   0.001 0.0006 10  0.0000  0.0013</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_1_1    -3.000 0.0110 10 -3.0157 -2.9836</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_2_1     1.500 0.0250 10  1.4730  1.5375</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_1_1  0.001 0.0009 10  0.0000  0.0021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_2_2  0.001 0.0020 10  0.0000  0.0047</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">pb</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               est     se  R    2.5%   97.5%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_1    -0.100 0.1246 10 -0.4078 -0.0207</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_1     0.050 0.2169 10 -0.1814  0.3589</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_2     0.050 0.2564 10 -0.1668  0.5460</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_2    -0.100 0.2802 10 -0.7522  0.0739</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_1_1    0.317 0.7735 10 -1.4508  0.8892</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_2_1    0.230 0.9179 10 -0.7594  1.8707</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_1_1   2.790 0.2025 10  2.4148  2.9673</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_1   0.060 0.1534 10 -0.2464  0.2022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_2   3.270 0.1902 10  2.9992  3.4952</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_1_1   0.001 0.0008 10  0.0000  0.0022</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_2_2   0.001 0.0006 10  0.0000  0.0013</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_1_1    -3.000 0.0110 10 -3.0157 -2.9836</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_2_1     1.500 0.0250 10  1.4730  1.5375</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_1_1  0.001 0.0009 10  0.0000  0.0021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_2_2  0.001 0.0020 10  0.0000  0.0047</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">pb</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    2.5 %       97.5 %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_1    -4.077782e-01 -0.020726276</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_1    -1.813916e-01  0.358892128</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_2    -1.668022e-01  0.546010031</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_2    -7.522353e-01  0.073878370</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_1_1   -1.450777e+00  0.889158933</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_2_1   -7.593946e-01  1.870666232</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_1_1   2.414810e+00  2.967317574</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_1  -2.464190e-01  0.202162246</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_2   2.999248e+00  3.495210388</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_1_1   1.130885e-11  0.002190197</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_2_2   3.066963e-13  0.001348211</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_1_1    -3.015696e+00 -2.983648291</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_2_1     1.473003e+00  1.537464840</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_1_1  1.037231e-28  0.002105091</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_2_2  3.077500e-20  0.004749901</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/vcov.html" class="external-link">vcov</a></span><span class="op">(</span><span class="va">pb</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  phi_1_1       phi_2_1       phi_1_2       phi_2_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_1     1.552535e-02 -1.214583e-02 -2.338265e-02 -1.981094e-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_1    -1.214583e-02  4.703815e-02  3.434235e-02 -3.852205e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_2    -2.338265e-02  3.434235e-02  6.572574e-02 -1.226227e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_2    -1.981094e-03 -3.852205e-02 -1.226227e-02  7.849244e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_1_1    7.506740e-02 -7.363848e-02 -1.656220e-01 -3.644616e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_2_1   -4.278445e-02  1.253467e-01  1.087128e-01 -2.098659e-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_1_1   1.038034e-02  1.473438e-02 -2.071698e-02 -4.302380e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_1   1.237430e-02 -6.655451e-03 -1.146293e-02 -2.044095e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_2  -4.635983e-03  1.901118e-02  2.181385e-02 -5.265278e-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_1_1  -2.368227e-05  4.963393e-05  2.168437e-05  1.206274e-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_2_2   2.419748e-05 -1.988310e-05 -1.251888e-05  6.247359e-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_1_1     6.596024e-04 -2.553283e-04 -1.338676e-03 -1.318875e-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_2_1     8.431135e-04  3.904986e-04 -1.703131e-03  1.831982e-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_1_1  4.026275e-05 -1.714550e-05 -6.941413e-05 -1.252861e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_2_2 -5.277156e-05  1.373976e-04  1.412349e-06 -2.316506e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 iota_1_1      iota_2_1     sigma_1_1     sigma_2_1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_1     0.0750674024 -0.0427844478  1.038034e-02  1.237430e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_1    -0.0736384783  0.1253466952  1.473438e-02 -6.655451e-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_2    -0.1656220389  0.1087127811 -2.071698e-02 -1.146293e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_2    -0.0364461616 -0.2098659206 -4.302380e-02 -2.044095e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_1_1    0.5982580262 -0.0540415798  8.032796e-02  7.238000e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_2_1   -0.0540415798  0.8424808325  7.521730e-02  4.144988e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_1_1   0.0803279564  0.0752172970  4.100263e-02  1.445459e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_1   0.0723800011  0.0414498791  1.445459e-02  2.352815e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_2  -0.0886568480 -0.0101307463  3.760539e-03 -6.613268e-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_1_1  -0.0001359780 -0.0001826633 -1.904200e-07 -7.964693e-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_2_2  -0.0000230707 -0.0002331043 -1.370438e-05 -2.533834e-06</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_1_1     0.0043456726  0.0013598845  1.415219e-03  9.459739e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_2_1     0.0022600713 -0.0112587754  6.469642e-04 -5.024293e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_1_1  0.0003146926  0.0003790729  1.002909e-04  1.005158e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_2_2  0.0001222386  0.0009135295  1.544954e-04  3.352090e-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                sigma_2_2     theta_1_1     theta_2_2       mu0_1_1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_1    -4.635983e-03 -2.368227e-05  2.419748e-05  6.596024e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_1     1.901118e-02  4.963393e-05 -1.988310e-05 -2.553283e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_2     2.181385e-02  2.168437e-05 -1.251888e-05 -1.338676e-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_2    -5.265278e-03  1.206274e-05  6.247359e-05 -1.318875e-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_1_1   -8.865685e-02 -1.359780e-04 -2.307070e-05  4.345673e-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_2_1   -1.013075e-02 -1.826633e-04 -2.331043e-04  1.359885e-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_1_1   3.760539e-03 -1.904200e-07 -1.370438e-05  1.415219e-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_1  -6.613268e-03 -7.964693e-05 -2.533834e-06  9.459739e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_2   3.615889e-02  4.928093e-05  2.561788e-05  1.386396e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_1_1   4.928093e-05  7.174745e-07 -3.828913e-08 -2.760084e-06</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_2_2   2.561788e-05 -3.828913e-08  3.732210e-07 -2.949258e-06</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_1_1     1.386396e-04 -2.760084e-06 -2.949258e-06  1.208425e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_2_1     9.984257e-04  7.573036e-06  7.671534e-06 -6.662992e-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_1_1 -2.960982e-05 -5.936345e-07 -1.245647e-07  7.685108e-06</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_2_2  1.738804e-05 -4.680165e-07 -8.230754e-07  1.484097e-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  mu0_2_1    sigma0_1_1    sigma0_2_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_1     8.431135e-04  4.026275e-05 -5.277156e-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_1     3.904986e-04 -1.714550e-05  1.373976e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_2    -1.703131e-03 -6.941413e-05  1.412349e-06</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_2     1.831982e-03 -1.252861e-04 -2.316506e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_1_1    2.260071e-03  3.146926e-04  1.222386e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_2_1   -1.125878e-02  3.790729e-04  9.135295e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_1_1   6.469642e-04  1.002909e-04  1.544954e-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_1  -5.024293e-04  1.005158e-04  3.352090e-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_2   9.984257e-04 -2.960982e-05  1.738804e-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_1_1   7.573036e-06 -5.936345e-07 -4.680165e-07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_2_2   7.671534e-06 -1.245647e-07 -8.230754e-07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_1_1    -6.662992e-05  7.685108e-06  1.484097e-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_2_1     6.230469e-04 -1.079332e-05 -2.047566e-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_1_1 -1.079332e-05  8.397100e-07  1.132966e-06</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_2_2 -2.047566e-05  1.132966e-06  4.043273e-06</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html" class="external-link">coef</a></span><span class="op">(</span><span class="va">pb</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    phi_1_1    phi_2_1    phi_1_2    phi_2_2   iota_1_1   iota_2_1  sigma_1_1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     -0.100      0.050      0.050     -0.100      0.317      0.230      2.790 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  sigma_2_1  sigma_2_2  theta_1_1  theta_2_2    mu0_1_1    mu0_2_1 sigma0_1_1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      0.060      3.270      0.001      0.001     -3.000      1.500      0.001 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_2_2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      0.001 </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">pb</span>, type <span class="op">=</span> <span class="st">"bc"</span><span class="op">)</span> <span class="co"># bias-corrected</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> PBSSMLinSDEFixed(R = 10L, path = path, prefix = "lse", n = n, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     time = time, delta_t = delta_t, mu0 = mu0, sigma0_l = sigma0_l, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     iota = iota, phi = phi, sigma_l = sigma_l, nu = nu, lambda = lambda, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     theta_l = theta_l, type = 0, ncores = 1, seed = 42)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Parametric bootstrap confidence intervals.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> type = "bc"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               est     se  R    2.5%   97.5%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_1    -0.100 0.1246 10 -0.2823  0.0009</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_1     0.050 0.2169 10 -0.1814  0.3589</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_2     0.050 0.2564 10 -0.1716  0.4011</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_2    -0.100 0.2802 10 -0.3241  0.0824</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_1_1    0.317 0.7735 10 -0.8096  0.9456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_2_1    0.230 0.9179 10 -0.8578  1.5606</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_1_1   2.790 0.2025 10  2.4148  2.9673</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_1   0.060 0.1534 10 -0.1441  0.2385</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_2   3.270 0.1902 10  2.9992  3.4952</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_1_1   0.001 0.0008 10  0.0000  0.0021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_2_2   0.001 0.0006 10  0.0000  0.0014</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_1_1    -3.000 0.0110 10 -3.0157 -2.9862</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_2_1     1.500 0.0250 10  1.4723  1.5333</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_1_1  0.001 0.0009 10  0.0000  0.0021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_2_2  0.001 0.0020 10  0.0000  0.0048</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">pb</span>, type <span class="op">=</span> <span class="st">"bc"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               est     se  R    2.5%   97.5%</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_1    -0.100 0.1246 10 -0.2823  0.0009</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_1     0.050 0.2169 10 -0.1814  0.3589</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_2     0.050 0.2564 10 -0.1716  0.4011</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_2    -0.100 0.2802 10 -0.3241  0.0824</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_1_1    0.317 0.7735 10 -0.8096  0.9456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_2_1    0.230 0.9179 10 -0.8578  1.5606</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_1_1   2.790 0.2025 10  2.4148  2.9673</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_1   0.060 0.1534 10 -0.1441  0.2385</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_2   3.270 0.1902 10  2.9992  3.4952</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_1_1   0.001 0.0008 10  0.0000  0.0021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_2_2   0.001 0.0006 10  0.0000  0.0014</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_1_1    -3.000 0.0110 10 -3.0157 -2.9862</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_2_1     1.500 0.0250 10  1.4723  1.5333</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_1_1  0.001 0.0009 10  0.0000  0.0021</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_2_2  0.001 0.0020 10  0.0000  0.0048</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html" class="external-link">confint</a></span><span class="op">(</span><span class="va">pb</span>, type <span class="op">=</span> <span class="st">"bc"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    2.5 %        97.5 %</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_1    -2.823080e-01  0.0008999461</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_1    -1.813916e-01  0.3588921278</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_1_2    -1.715505e-01  0.4011436299</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> phi_2_2    -3.240513e-01  0.0823961588</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_1_1   -8.095679e-01  0.9456080142</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> iota_2_1   -8.577600e-01  1.5606285862</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_1_1   2.414810e+00  2.9673175738</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_1  -1.440736e-01  0.2384940884</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma_2_2   2.999248e+00  3.4952103882</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_1_1   3.102086e-12  0.0020779489</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> theta_2_2   3.061333e-11  0.0013545662</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_1_1    -3.015730e+00 -2.9862200992</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mu0_2_1     1.472281e+00  1.5332781112</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_1_1  1.087704e-22  0.0021456273</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> sigma0_2_2  2.743481e-15  0.0048339406</span>
-<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
