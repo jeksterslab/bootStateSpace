@@ -500,7 +500,7 @@ The dynamic structure is given by
 }
 }
 \examples{
-\donttest{
+\dontrun{
 # prepare parameters
 set.seed(42)
 ## number of individuals

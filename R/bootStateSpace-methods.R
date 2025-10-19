@@ -17,6 +17,44 @@
 #'   use the argument `alpha` used in `x`.
 #' @inheritParams summary.bootstatespace
 #'
+#' @examples
+#' \dontrun{
+#' # prepare parameters
+#' ## number of individuals
+#' n <- 5
+#' ## time points
+#' time <- 50
+#' ## dynamic structure
+#' p <- 3
+#' mu0 <- rep(x = 0, times = p)
+#' sigma0 <- 0.001 * diag(p)
+#' sigma0_l <- t(chol(sigma0))
+#' alpha <- rep(x = 0, times = p)
+#' beta <- 0.50 * diag(p)
+#' psi <- 0.001 * diag(p)
+#' psi_l <- t(chol(psi))
+#'
+#' path <- tempdir()
+#'
+#' pb <- PBSSMVARFixed(
+#'   R = 10L, # use at least 1000 in actual research
+#'   path = path,
+#'   prefix = "var",
+#'   n = n,
+#'   time = time,
+#'   mu0 = mu0,
+#'   sigma0_l = sigma0_l,
+#'   alpha = alpha,
+#'   beta = beta,
+#'   psi_l = psi_l,
+#'   type = 0,
+#'   ncores = 1, # consider using multiple cores
+#'   seed = 42
+#' )
+#' print(pb)
+#' print(pb, type = "bc")
+#' }
+#'
 #' @keywords methods
 #' @export
 print.bootstatespace <- function(x,
@@ -24,29 +62,11 @@ print.bootstatespace <- function(x,
                                  type = "pc",
                                  digits = 4,
                                  ...) {
-  cat("Call:\n")
-  base::print(x$call)
-  if (x$method == "parametric") {
-    cat(
-      paste0(
-        "\n",
-        "Parametric bootstrap confidence intervals.",
-        "\n",
-        "type = ",
-        "\"",
-        type,
-        "\"",
-        "\n"
-      )
-    )
-  }
-  base::print(
-    round(
-      .PBCI(
-        object = x,
-        alpha = alpha,
-        type = type
-      ),
+  print.summary.bootstatespace(
+    summary.bootstatespace(
+      object = x,
+      alpha = alpha,
+      type = type,
       digits = digits
     )
   )
@@ -76,6 +96,44 @@ print.bootstatespace <- function(x,
 #'   `type = "bc"` for bias corrected.
 #' @param digits Digits to print.
 #'
+#' @examples
+#' \dontrun{
+#' # prepare parameters
+#' ## number of individuals
+#' n <- 5
+#' ## time points
+#' time <- 50
+#' ## dynamic structure
+#' p <- 3
+#' mu0 <- rep(x = 0, times = p)
+#' sigma0 <- 0.001 * diag(p)
+#' sigma0_l <- t(chol(sigma0))
+#' alpha <- rep(x = 0, times = p)
+#' beta <- 0.50 * diag(p)
+#' psi <- 0.001 * diag(p)
+#' psi_l <- t(chol(psi))
+#'
+#' path <- tempdir()
+#'
+#' pb <- PBSSMVARFixed(
+#'   R = 10L, # use at least 1000 in actual research
+#'   path = path,
+#'   prefix = "var",
+#'   n = n,
+#'   time = time,
+#'   mu0 = mu0,
+#'   sigma0_l = sigma0_l,
+#'   alpha = alpha,
+#'   beta = beta,
+#'   psi_l = psi_l,
+#'   type = 0,
+#'   ncores = 1, # consider using multiple cores
+#'   seed = 42
+#' )
+#' summary(pb)
+#' summary(pb, type = "bc")
+#' }
+#'
 #' @keywords methods
 #' @export
 summary.bootstatespace <- function(object,
@@ -83,40 +141,74 @@ summary.bootstatespace <- function(object,
                                    type = "pc",
                                    digits = 4,
                                    ...) {
-  if (interactive()) {
-    # nocov start
-    cat("Call:\n")
-    base::print(object$call)
-    if (object$method == "parametric") {
-      if (interactive()) {
-        cat(
-          paste0(
-            "\n",
-            "Parametric bootstrap confidence intervals.",
-            "\n",
-            "type = ",
-            "\"",
-            type,
-            "\"",
-            "\n"
-          )
-        )
-      }
-    }
-    # nocov end
-  }
   ci <- .PBCI(
     object = object,
     alpha = alpha,
     type = type
   )
-  if (!is.null(digits)) {
-    ci <- round(
-      x = ci,
-      digits = digits
+  print_summary <- round(
+    x = ci,
+    digits = digits
+  )
+  attr(
+    x = ci,
+    which = "fit"
+  ) <- object
+  attr(
+    x = ci,
+    which = "print_summary"
+  ) <- print_summary
+  attr(
+    x = ci,
+    which = "alpha"
+  ) <- alpha
+  attr(
+    x = ci,
+    which = "type"
+  ) <- type
+  attr(
+    x = ci,
+    which = "digits"
+  ) <- digits
+  class(ci) <- "summary.bootstatespace"
+  ci
+}
+
+#' @noRd
+#' @keywords internal
+#' @exportS3Method print summary.bootstatespace
+print.summary.bootstatespace <- function(x,
+                                         ...) {
+  print_summary <- attr(
+    x = x,
+    which = "print_summary"
+  )
+  object <- attr(
+    x = x,
+    which = "fit"
+  )
+  type <- attr(
+    x = x,
+    which = "type"
+  )
+  cat("Call:\n")
+  base::print(object$call)
+  if (object$method == "parametric") {
+    cat(
+      paste0(
+        "\n",
+        "Parametric bootstrap confidence intervals.",
+        "\n",
+        "type = ",
+        "\"",
+        type,
+        "\"",
+        "\n"
+      )
     )
   }
-  ci
+  print(print_summary)
+  invisible(x)
 }
 
 #' Sampling Variance-Covariance Matrix Method for an Object of Class
@@ -127,6 +219,43 @@ summary.bootstatespace <- function(object,
 #' @return Returns the variance-covariance matrix of estimates.
 #'
 #' @inheritParams summary.bootstatespace
+#'
+#' @examples
+#' \dontrun{
+#' # prepare parameters
+#' ## number of individuals
+#' n <- 5
+#' ## time points
+#' time <- 50
+#' ## dynamic structure
+#' p <- 3
+#' mu0 <- rep(x = 0, times = p)
+#' sigma0 <- 0.001 * diag(p)
+#' sigma0_l <- t(chol(sigma0))
+#' alpha <- rep(x = 0, times = p)
+#' beta <- 0.50 * diag(p)
+#' psi <- 0.001 * diag(p)
+#' psi_l <- t(chol(psi))
+#'
+#' path <- tempdir()
+#'
+#' pb <- PBSSMVARFixed(
+#'   R = 10L, # use at least 1000 in actual research
+#'   path = path,
+#'   prefix = "var",
+#'   n = n,
+#'   time = time,
+#'   mu0 = mu0,
+#'   sigma0_l = sigma0_l,
+#'   alpha = alpha,
+#'   beta = beta,
+#'   psi_l = psi_l,
+#'   type = 0,
+#'   ncores = 1, # consider using multiple cores
+#'   seed = 42
+#' )
+#' vcov(pb)
+#' }
 #'
 #' @keywords methods
 #' @export
@@ -143,6 +272,43 @@ vcov.bootstatespace <- function(object,
 #' @return Returns a vector of estimated parameters.
 #'
 #' @inheritParams summary.bootstatespace
+#'
+#' @examples
+#' \dontrun{
+#' # prepare parameters
+#' ## number of individuals
+#' n <- 5
+#' ## time points
+#' time <- 50
+#' ## dynamic structure
+#' p <- 3
+#' mu0 <- rep(x = 0, times = p)
+#' sigma0 <- 0.001 * diag(p)
+#' sigma0_l <- t(chol(sigma0))
+#' alpha <- rep(x = 0, times = p)
+#' beta <- 0.50 * diag(p)
+#' psi <- 0.001 * diag(p)
+#' psi_l <- t(chol(psi))
+#'
+#' path <- tempdir()
+#'
+#' pb <- PBSSMVARFixed(
+#'   R = 10L, # use at least 1000 in actual research
+#'   path = path,
+#'   prefix = "var",
+#'   n = n,
+#'   time = time,
+#'   mu0 = mu0,
+#'   sigma0_l = sigma0_l,
+#'   alpha = alpha,
+#'   beta = beta,
+#'   psi_l = psi_l,
+#'   type = 0,
+#'   ncores = 1, # consider using multiple cores
+#'   seed = 42
+#' )
+#' coef(pb)
+#' }
 #'
 #' @keywords methods
 #' @export
@@ -164,6 +330,44 @@ coef.bootstatespace <- function(object,
 #'   either a vector of numbers or a vector of names.
 #'   If missing, all parameters are considered.
 #' @param level the confidence level required.
+#'
+#' @examples
+#' \dontrun{
+#' # prepare parameters
+#' ## number of individuals
+#' n <- 5
+#' ## time points
+#' time <- 50
+#' ## dynamic structure
+#' p <- 3
+#' mu0 <- rep(x = 0, times = p)
+#' sigma0 <- 0.001 * diag(p)
+#' sigma0_l <- t(chol(sigma0))
+#' alpha <- rep(x = 0, times = p)
+#' beta <- 0.50 * diag(p)
+#' psi <- 0.001 * diag(p)
+#' psi_l <- t(chol(psi))
+#'
+#' path <- tempdir()
+#'
+#' pb <- PBSSMVARFixed(
+#'   R = 10L, # use at least 1000 in actual research
+#'   path = path,
+#'   prefix = "var",
+#'   n = n,
+#'   time = time,
+#'   mu0 = mu0,
+#'   sigma0_l = sigma0_l,
+#'   alpha = alpha,
+#'   beta = beta,
+#'   psi_l = psi_l,
+#'   type = 0,
+#'   ncores = 1, # consider using multiple cores
+#'   seed = 42
+#' )
+#' confint(pb)
+#' confint(pb, type = "bc")
+#' }
 #'
 #' @keywords methods
 #' @export
@@ -223,6 +427,43 @@ extract <- function(object,
 #'   What specific matrix to extract.
 #'   If `what = NULL`,
 #'   extract all available matrices.
+#'
+#' @examples
+#' \dontrun{
+#' # prepare parameters
+#' ## number of individuals
+#' n <- 5
+#' ## time points
+#' time <- 50
+#' ## dynamic structure
+#' p <- 3
+#' mu0 <- rep(x = 0, times = p)
+#' sigma0 <- 0.001 * diag(p)
+#' sigma0_l <- t(chol(sigma0))
+#' alpha <- rep(x = 0, times = p)
+#' beta <- 0.50 * diag(p)
+#' psi <- 0.001 * diag(p)
+#' psi_l <- t(chol(psi))
+#'
+#' path <- tempdir()
+#'
+#' pb <- PBSSMVARFixed(
+#'   R = 10L, # use at least 1000 in actual research
+#'   path = path,
+#'   prefix = "var",
+#'   n = n,
+#'   time = time,
+#'   mu0 = mu0,
+#'   sigma0_l = sigma0_l,
+#'   alpha = alpha,
+#'   beta = beta,
+#'   psi_l = psi_l,
+#'   type = 0,
+#'   ncores = 1, # consider using multiple cores
+#'   seed = 42
+#' )
+#' extract(pb, what = "beta")
+#' }
 #'
 #' @keywords methods
 #' @export

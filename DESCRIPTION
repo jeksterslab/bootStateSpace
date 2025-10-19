@@ -1,6 +1,6 @@
 Package: bootStateSpace
 Title: Bootstrap for State Space Models
-Version: 1.0.3
+Version: 1.0.3.9000
 Authors@R: c(
     person(given = "Ivan Jacob Agaloos",
            family = "Pesigan",
