@@ -334,7 +334,7 @@ linking the covariates to the latent variables.
 }
 }
 \examples{
-\donttest{
+\dontrun{
 # prepare parameters
 ## number of individuals
 n <- 5

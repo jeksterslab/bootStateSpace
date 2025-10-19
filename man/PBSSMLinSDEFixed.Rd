@@ -507,7 +507,7 @@ where \eqn{p} is the number of latent variables and
 }
 }
 \examples{
-\donttest{
+\dontrun{
 # prepare parameters
 ## number of individuals
 n <- 5

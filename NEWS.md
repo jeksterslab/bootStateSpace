@@ -1,3 +1,9 @@
+# bootStateSpace 1.0.3.9000
+
+## Patch
+
+* Minor edits to methods.
+
 # bootStateSpace 1.0.3
 
 ## Patch
