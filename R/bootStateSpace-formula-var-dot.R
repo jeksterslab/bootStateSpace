@@ -24,7 +24,7 @@
   )
   if (intercept) {
     formula <- lapply(
-      X = seq_len(length(formula)),
+      X = seq_along(formula),
       FUN = function(i) {
         paste0(
           formula[[i]],
