@@ -56,7 +56,7 @@
     } else {
       intercept_label <- paste0(
         "alpha_",
-          seq_along(intercept_value),
+        seq_along(intercept_value),
         "_1"
       )
     }
