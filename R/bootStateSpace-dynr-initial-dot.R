@@ -11,9 +11,7 @@
   } else {
     params_inistate <- paste0(
       "mu0_",
-      seq_len(
-        length(mu0)
-      ),
+      seq_along(mu0),
       "_1"
     )
   }

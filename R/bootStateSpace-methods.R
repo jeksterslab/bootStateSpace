@@ -377,10 +377,8 @@ confint.bootstatespace <- function(object,
                                    type = "pc",
                                    ...) {
   if (is.null(parm)) {
-    parm <- seq_len(
-      length(
-        object$est
-      )
+    parm <- seq_along(
+      object$est
     )
   }
   ci <- .PBCI(
@@ -476,18 +474,13 @@ extract.bootstatespace <- function(object,
       .Vec2Mat(x = i)
     }
   )
-  if (is.null(what)) {
-    return(
-      output
-    )
-  } else {
-    return(
-      lapply(
-        X = output,
-        FUN = function(i) {
-          i[[what]]
-        }
-      )
+  if (!is.null(what)) {
+    output <- lapply(
+      X = output,
+      FUN = function(i) {
+        i[[what]]
+      }
     )
   }
+  output
 }

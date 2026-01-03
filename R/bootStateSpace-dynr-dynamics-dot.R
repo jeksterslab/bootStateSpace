@@ -43,26 +43,20 @@
       if (ou) {
         intercept_label <- paste0(
           "mu_",
-          seq_len(
-            length(intercept_value)
-          ),
+          seq_along(intercept_value),
           "_1"
         )
       } else {
         intercept_label <- paste0(
           "iota_",
-          seq_len(
-            length(intercept_value)
-          ),
+          seq_along(intercept_value),
           "_1"
         )
       }
     } else {
       intercept_label <- paste0(
         "alpha_",
-        seq_len(
-          length(intercept_value)
-        ),
+        seq_along(intercept_value),
         "_1"
       )
     }
