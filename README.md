@@ -68,7 +68,7 @@ To cite `bootStateSpace` in publications, please cite Pesigan et al.
 <div id="refs" class="references csl-bib-body hanging-indent"
 entry-spacing="0" line-spacing="2">
 
-<div id="ref-Pesigan-Russell-Chow-2025a" class="csl-entry">
+<div id="ref-Pesigan-Russell-Chow-2025o" class="csl-entry">
 
 Pesigan, I. J. A., Russell, M. A., & Chow, S.-M. (2025). Inferences and
 effect sizes for direct, indirect, and total effects in continuous-time

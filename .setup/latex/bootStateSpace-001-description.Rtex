@@ -75,7 +75,7 @@
 
 \section*{Description}
 
-Provides a streamlined and user-friendly framework for bootstrapping in state space models, particularly when the number of subjects/units (n) exceeds one, a scenario commonly encountered in social and behavioral sciences. The parametric bootstrap implemented here was developed and applied in \Textcite{Pesigan-Russell-Chow-2025a}.
+Provides a streamlined and user-friendly framework for bootstrapping in state space models, particularly when the number of subjects/units (n) exceeds one, a scenario commonly encountered in social and behavioral sciences. The parametric bootstrap implemented here was developed and applied in \Textcite{Pesigan-Russell-Chow-2025o}.
 
 \section*{Installation}
 
@@ -97,9 +97,13 @@ See
 \href{https://jeksterslab.github.io/bootStateSpace/index.html}{GitHub Pages}
 for package documentation.
 
+\section*{Citation}
+
+To cite \texttt{bootStateSpace} in publications, please cite \Textcite{Pesigan-Russell-Chow-2025o}.
+
 \nocite{RCoreTeam-2025}
 
-\nocite{Pesigan-Russell-Chow-2025a}
+\nocite{Pesigan-Russell-Chow-2025o}
 
 \printbibliography
 
