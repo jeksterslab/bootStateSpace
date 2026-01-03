@@ -1,0 +1,35 @@
+# Changelog
+
+## bootStateSpace 1.0.3.9000
+
+### Patch
+
+- Minor edits to methods.
+
+## bootStateSpace 1.0.3
+
+CRAN release: 2025-10-09
+
+### Patch
+
+- Added citation to Pesigan, I. J. A., Russell, M. A., & Chow, S.-M.
+  (2025). Inferences and effect sizes for direct, indirect, and total
+  effects in continuous-time mediation models. *Psychological Methods*.
+  <https://doi.org/10.1037/met0000779>.
+
+## bootStateSpace 1.0.2
+
+CRAN release: 2025-02-14
+
+### Patch
+
+- Added the `clean` argument to the `PBSSMFixed`, `PBSSMOUFixed`,
+  `PBSSMLinSDEFixed`, and `PBSSMVARFixed` functions.
+
+## bootStateSpace 1.0.1
+
+CRAN release: 2025-01-22
+
+### Patch
+
+- Initial CRAN release

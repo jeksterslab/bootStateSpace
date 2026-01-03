@@ -1,0 +1,440 @@
+# Parametric Bootstrap (The Ornstein–Uhlenbeck Model)
+
+## Model
+
+The measurement model is given by
+``` math
+\begin{equation}
+  \mathbf{y}_{i, t}
+  =
+  \boldsymbol{\nu}
+  +
+  \boldsymbol{\Lambda}
+  \boldsymbol{\eta}_{i, t}
+  +
+  \boldsymbol{\varepsilon}_{i, t},
+  \quad
+  \mathrm{with}
+  \quad
+  \boldsymbol{\varepsilon}_{i, t}
+  \sim
+  \mathcal{N}
+  \left(
+  \mathbf{0},
+  \boldsymbol{\Theta}
+  \right)
+\end{equation}
+```
+where $`\mathbf{y}_{i, t}`$, $`\boldsymbol{\eta}_{i, t}`$, and
+$`\boldsymbol{\varepsilon}_{i, t}`$ are random variables and
+$`\boldsymbol{\nu}`$, $`\boldsymbol{\Lambda}`$, and
+$`\boldsymbol{\Theta}`$ are model parameters. $`\mathbf{y}_{i, t}`$
+represents a vector of observed random variables,
+$`\boldsymbol{\eta}_{i, t}`$ a vector of latent random variables, and
+$`\boldsymbol{\varepsilon}_{i, t}`$ a vector of random measurement
+errors, at time $`t`$ and individual $`i`$. $`\boldsymbol{\nu}`$ denotes
+a vector of intercepts, $`\boldsymbol{\Lambda}`$ a matrix of factor
+loadings, and $`\boldsymbol{\Theta}`$ the covariance matrix of
+$`\boldsymbol{\varepsilon}`$.
+
+An alternative representation of the measurement error is given by
+``` math
+\begin{equation}
+  \boldsymbol{\varepsilon}_{i, t}
+  =
+  \boldsymbol{\Theta}^{\frac{1}{2}}
+  \mathbf{z}_{i, t},
+  \quad
+  \mathrm{with}
+  \quad
+  \mathbf{z}_{i, t}
+  \sim
+  \mathcal{N}
+  \left(
+  \mathbf{0},
+  \mathbf{I}
+  \right)
+\end{equation}
+```
+where $`\mathbf{z}_{i, t}`$ is a vector of independent standard normal
+random variables and
+$`\left( \boldsymbol{\Theta}^{\frac{1}{2}} \right) \left( \boldsymbol{\Theta}^{\frac{1}{2}} \right)^{\prime} = \boldsymbol{\Theta}`$
+.
+
+The dynamic structure is given by
+``` math
+\begin{equation}
+  \mathrm{d} \boldsymbol{\eta}_{i, t}
+  =
+  \boldsymbol{\Phi}
+  \left(
+  \boldsymbol{\eta}_{i, t}
+  -
+  \boldsymbol{\mu}
+  \right)
+  \mathrm{d}t
+  +
+  \boldsymbol{\Sigma}^{\frac{1}{2}}
+  \mathrm{d}
+  \mathbf{W}_{i, t}
+\end{equation}
+```
+where $`\boldsymbol{\mu}`$ is the long-term mean or equilibrium level,
+$`\boldsymbol{\Phi}`$ is the rate of mean reversion, determining how
+quickly the variable returns to its mean, $`\boldsymbol{\Sigma}`$ is the
+matrix of volatility or randomness in the process, and
+$`\mathrm{d}\boldsymbol{W}`$ is a Wiener process or Brownian motion,
+which represents random fluctuations.
+
+## Parameters
+
+### Notation
+
+Let $`t = 100`$ be the number of time points and $`n = 5`$ be the number
+of individuals.
+
+Let the measurement model intecept vector $`\boldsymbol{\nu}`$ be given
+by
+
+``` math
+\begin{equation}
+\boldsymbol{\nu}
+=
+\left(
+\begin{array}{c}
+  0 \\
+  0 \\
+  0 \\
+\end{array}
+\right) .
+\end{equation}
+```
+
+Let the factor loadings matrix $`\boldsymbol{\Lambda}`$ be given by
+
+``` math
+\begin{equation}
+\boldsymbol{\Lambda}
+=
+\left(
+\begin{array}{ccc}
+  1 & 0 & 0 \\
+  0 & 1 & 0 \\
+  0 & 0 & 1 \\
+\end{array}
+\right) .
+\end{equation}
+```
+
+Let the measurement error covariance matrix $`\boldsymbol{\Theta}`$ be
+given by
+
+``` math
+\begin{equation}
+\boldsymbol{\Theta}
+=
+\left(
+\begin{array}{ccc}
+  0.2 & 0 & 0 \\
+  0 & 0.2 & 0 \\
+  0 & 0 & 0.2 \\
+\end{array}
+\right) .
+\end{equation}
+```
+
+Let the initial condition $`\boldsymbol{\eta}_{0}`$ be given by
+
+``` math
+\begin{equation}
+\boldsymbol{\eta}_{0} \sim \mathcal{N} \left( \boldsymbol{\mu}_{\boldsymbol{\eta} \mid 0}, \boldsymbol{\Sigma}_{\boldsymbol{\eta} \mid 0} \right)
+\end{equation}
+```
+
+``` math
+\begin{equation}
+\boldsymbol{\mu}_{\boldsymbol{\eta} \mid 0}
+=
+\left(
+\begin{array}{c}
+  0 \\
+  0 \\
+  0 \\
+\end{array}
+\right)
+\end{equation}
+```
+
+``` math
+\begin{equation}
+\boldsymbol{\Sigma}_{\boldsymbol{\eta} \mid 0}
+=
+\left(
+\begin{array}{ccc}
+  1 & 0.2 & 0.2 \\
+  0.2 & 1 & 0.2 \\
+  0.2 & 0.2 & 1 \\
+\end{array}
+\right) .
+\end{equation}
+```
+
+Let the long-term mean vector $`\boldsymbol{\mu}`$ be given by
+
+``` math
+\begin{equation}
+\boldsymbol{\mu}
+=
+\left(
+\begin{array}{c}
+  0 \\
+  0 \\
+  0 \\
+\end{array}
+\right) .
+\end{equation}
+```
+
+Let the rate of mean reversion matrix $`\boldsymbol{\Phi}`$ be given by
+
+``` math
+\begin{equation}
+\boldsymbol{\Phi}
+=
+\left(
+\begin{array}{ccc}
+  -0.357 & 0 & 0 \\
+  0.771 & -0.511 & 0 \\
+  -0.45 & 0.729 & -0.693 \\
+\end{array}
+\right) .
+\end{equation}
+```
+
+Let the dynamic process noise covariance matrix $`\boldsymbol{\Sigma}`$
+be given by
+
+``` math
+\begin{equation}
+\boldsymbol{\Sigma}
+=
+\left(
+\begin{array}{ccc}
+  0.2445556 & 0.0220159 & -0.0500476 \\
+  0.0220159 & 0.070678 & 0.0153946 \\
+  -0.0500476 & 0.0153946 & 0.0755306 \\
+\end{array}
+\right) .
+\end{equation}
+```
+
+Let $`\Delta t = 0.1`$.
+
+### R Function Arguments
+
+``` r
+
+n
+#> [1] 5
+time
+#> [1] 100
+delta_t
+#> [1] 0.1
+mu0
+#> [1] 0 0 0
+sigma0
+#>      [,1] [,2] [,3]
+#> [1,]  1.0  0.2  0.2
+#> [2,]  0.2  1.0  0.2
+#> [3,]  0.2  0.2  1.0
+sigma0_l # sigma0_l <- t(chol(sigma0))
+#>      [,1]      [,2]      [,3]
+#> [1,]  1.0 0.0000000 0.0000000
+#> [2,]  0.2 0.9797959 0.0000000
+#> [3,]  0.2 0.1632993 0.9660918
+mu
+#> [1] 0 0 0
+phi
+#>        [,1]   [,2]   [,3]
+#> [1,] -0.357  0.000  0.000
+#> [2,]  0.771 -0.511  0.000
+#> [3,] -0.450  0.729 -0.693
+sigma
+#>             [,1]       [,2]        [,3]
+#> [1,]  0.24455556 0.02201587 -0.05004762
+#> [2,]  0.02201587 0.07067800  0.01539456
+#> [3,] -0.05004762 0.01539456  0.07553061
+sigma_l # sigma_l <- t(chol(sigma))
+#>             [,1]      [,2]     [,3]
+#> [1,]  0.49452559 0.0000000 0.000000
+#> [2,]  0.04451917 0.2620993 0.000000
+#> [3,] -0.10120330 0.0759256 0.243975
+nu
+#> [1] 0 0 0
+lambda
+#>      [,1] [,2] [,3]
+#> [1,]    1    0    0
+#> [2,]    0    1    0
+#> [3,]    0    0    1
+theta
+#>      [,1] [,2] [,3]
+#> [1,]  0.2  0.0  0.0
+#> [2,]  0.0  0.2  0.0
+#> [3,]  0.0  0.0  0.2
+theta_l # theta_l <- t(chol(theta))
+#>           [,1]      [,2]      [,3]
+#> [1,] 0.4472136 0.0000000 0.0000000
+#> [2,] 0.0000000 0.4472136 0.0000000
+#> [3,] 0.0000000 0.0000000 0.4472136
+```
+
+### Parametric Bootstrap
+
+``` r
+
+R <- 5L # use at least 1000 in actual research
+path <- getwd()
+prefix <- "ou"
+```
+
+We use the `PBSSMOUFixed` function from the `bootStateSpace` package to
+perform parametric bootstraping using the parameters described above.
+The argument `R` specifies the number of bootstrap replications. The
+generated data and model estimates are stored in `path` using the
+specified `prefix` for the file names. The
+`ncores = parallel::detectCores()` argument instructs the function to
+use all available CPU cores in the system.
+
+> ***NOTE:*** Fitting the Ornstein–Uhlenbeck model multiple times is
+> computationally intensive.
+
+``` r
+
+library(bootStateSpace)
+pb <- PBSSMOUFixed(
+  R = R,
+  path = path,
+  prefix = prefix,
+  n = n,
+  time = time,
+  delta_t = delta_t,
+  mu0 = mu0,
+  sigma0_l = sigma0_l,
+  mu = mu,
+  phi = phi,
+  sigma_l = sigma_l,
+  nu = nu,
+  lambda = lambda,
+  theta_l = theta_l,
+  ncores = parallel::detectCores(),
+  seed = 42
+)
+summary(pb)
+#> Call:
+#> PBSSMOUFixed(R = R, path = path, prefix = prefix, n = n, time = time, 
+#>     delta_t = delta_t, mu0 = mu0, sigma0_l = sigma0_l, mu = mu, 
+#>     phi = phi, sigma_l = sigma_l, nu = nu, lambda = lambda, theta_l = theta_l, 
+#>     ncores = parallel::detectCores(), seed = 42)
+#> 
+#> Parametric bootstrap confidence intervals.
+#> type = "pc"
+#>                est     se R    2.5%   97.5%
+#> phi_1_1    -0.3570 0.2067 5 -0.7681 -0.2681
+#> phi_2_1     0.7710 0.0606 5  0.7301  0.8703
+#> phi_3_1    -0.4500 0.1070 5 -0.4423 -0.1996
+#> phi_1_2     0.0000 0.1336 5 -0.0799  0.2284
+#> phi_2_2    -0.5110 0.0819 5 -0.6054 -0.4144
+#> phi_3_2     0.7290 0.1474 5  0.4641  0.8199
+#> phi_1_3     0.0000 0.1079 5 -0.1023  0.1420
+#> phi_2_3     0.0000 0.0692 5 -0.1269  0.0487
+#> phi_3_3    -0.6930 0.1380 5 -0.7886 -0.4967
+#> sigma_1_1   0.2446 0.0465 5  0.1845  0.2932
+#> sigma_2_1   0.0220 0.0359 5 -0.0338  0.0570
+#> sigma_3_1  -0.0500 0.0290 5 -0.0919 -0.0311
+#> sigma_2_2   0.0707 0.0253 5  0.0286  0.0872
+#> sigma_3_2   0.0154 0.0195 5 -0.0008  0.0477
+#> sigma_3_3   0.0755 0.0230 5  0.0414  0.0984
+#> theta_1_1   0.2000 0.0206 5  0.1685  0.2196
+#> theta_2_2   0.2000 0.0148 5  0.1885  0.2221
+#> theta_3_3   0.2000 0.0096 5  0.2035  0.2271
+#> mu0_1_1     0.0000 0.7517 5 -1.0119  0.7672
+#> mu0_2_1     0.0000 0.6410 5 -0.7538  0.7690
+#> mu0_3_1     0.0000 0.2653 5 -0.2684  0.3747
+#> sigma0_1_1  1.0000 0.3442 5  0.2519  1.0910
+#> sigma0_2_1  0.2000 0.2097 5 -0.3476  0.1201
+#> sigma0_3_1  0.2000 0.4591 5 -0.2634  0.8584
+#> sigma0_2_2  1.0000 0.5203 5  0.2909  1.5457
+#> sigma0_3_2  0.2000 0.3055 5 -0.3128  0.4445
+#> sigma0_3_3  1.0000 1.1989 5  0.0523  2.7856
+summary(pb, type = "bc")
+#> Call:
+#> PBSSMOUFixed(R = R, path = path, prefix = prefix, n = n, time = time, 
+#>     delta_t = delta_t, mu0 = mu0, sigma0_l = sigma0_l, mu = mu, 
+#>     phi = phi, sigma_l = sigma_l, nu = nu, lambda = lambda, theta_l = theta_l, 
+#>     ncores = parallel::detectCores(), seed = 42)
+#> 
+#> Parametric bootstrap confidence intervals.
+#> type = "bc"
+#>                est     se R    2.5%   97.5%
+#> phi_1_1    -0.3570 0.2067 5 -0.7105 -0.2624
+#> phi_2_1     0.7710 0.0606 5  0.7362  0.8733
+#> phi_3_1    -0.4500 0.1070 5 -0.4517 -0.2514
+#> phi_1_2     0.0000 0.1336 5 -0.0806  0.1987
+#> phi_2_2    -0.5110 0.0819 5 -0.6129 -0.4161
+#> phi_3_2     0.7290 0.1474 5  0.5581  0.8434
+#> phi_1_3     0.0000 0.1079 5 -0.1026  0.1240
+#> phi_2_3     0.0000 0.0692 5 -0.0598  0.0572
+#> phi_3_3    -0.6930 0.1380 5 -0.7904 -0.5047
+#> sigma_1_1   0.2446 0.0465 5  0.1802  0.2904
+#> sigma_2_1   0.0220 0.0359 5 -0.0253  0.0591
+#> sigma_3_1  -0.0500 0.0290 5 -0.0923 -0.0329
+#> sigma_2_2   0.0707 0.0253 5  0.0422  0.0891
+#> sigma_3_2   0.0154 0.0195 5 -0.0035  0.0329
+#> sigma_3_3   0.0755 0.0230 5  0.0447  0.1000
+#> theta_1_1   0.2000 0.0206 5  0.1666  0.2172
+#> theta_2_2   0.2000 0.0148 5  0.1884  0.2199
+#> theta_3_3   0.2000 0.0096 5  0.2024  0.2024
+#> mu0_1_1     0.0000 0.7517 5 -1.0820  0.7396
+#> mu0_2_1     0.0000 0.6410 5 -0.8088  0.7379
+#> mu0_3_1     0.0000 0.2653 5 -0.2385  0.3916
+#> sigma0_1_1  1.0000 0.3442 5  0.8007  1.1095
+#> sigma0_2_1  0.2000 0.2097 5  0.1218  0.1218
+#> sigma0_3_1  0.2000 0.4591 5 -0.2835  0.7808
+#> sigma0_2_2  1.0000 0.5203 5  0.6259  1.6296
+#> sigma0_3_2  0.2000 0.3055 5 -0.0937  0.4891
+#> sigma0_3_3  1.0000 1.1989 5  0.1344  2.8335
+```
+
+## References
+
+Chow, S.-M., Losardo, D., Park, J., & Molenaar, P. C. M. (2023).
+Continuous-time dynamic models: Connections to structural equation
+models and other discrete-time models. In R. H. Hoyle (Ed.), *Handbook
+of structural equation modeling* (2nd ed.). The Guilford Press.
+
+Deboeck, P. R., & Preacher, K. J. (2015). No need to be discrete: A
+method for continuous time mediation analysis. *Structural Equation
+Modeling: A Multidisciplinary Journal*, *23*(1), 61–75.
+<https://doi.org/10.1080/10705511.2014.973960>
+
+Oravecz, Z., Tuerlinckx, F., & Vandekerckhove, J. (2011). A hierarchical
+latent stochastic differential equation model for affective dynamics.
+*Psychological Methods*, *16*(4), 468–490.
+<https://doi.org/10.1037/a0024375>
+
+Ou, L., Hunter, M. D., & Chow, S.-M. (2019). What’s for dynr: A package
+for linear and nonlinear dynamic modeling in R. *The R Journal*,
+*11*(1), 91. <https://doi.org/10.32614/rj-2019-012>
+
+Pesigan, I. J. A., Russell, M. A., & Chow, S.-M. (2025). Inferences and
+effect sizes for direct, indirect, and total effects in continuous-time
+mediation models. *Psychological Methods*.
+<https://doi.org/10.1037/met0000779>
+
+R Core Team. (2024). *R: A language and environment for statistical
+computing*. R Foundation for Statistical Computing.
+<https://www.R-project.org/>
+
+Uhlenbeck, G. E., & Ornstein, L. S. (1930). On the theory of the
+brownian motion. *Physical Review*, *36*(5), 823–841.
+<https://doi.org/10.1103/physrev.36.823>

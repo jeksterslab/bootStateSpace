@@ -1,0 +1,319 @@
+# Parametric Bootstrap (The Vector Autoregressive Model)
+
+## Model
+
+The measurement model is given by
+``` math
+\begin{equation}
+  \mathbf{y}_{i, t}
+  =
+  \boldsymbol{\eta}_{i, t}
+\end{equation}
+```
+where $`\mathbf{y}_{i, t}`$ represents a vector of observed variables
+and $`\boldsymbol{\eta}_{i, t}`$ a vector of latent variables for
+individual $`i`$ and time $`t`$. Since the observed and latent variables
+are equal, we only generate data from the dynamic structure.
+
+The dynamic structure is given by
+``` math
+\begin{equation}
+  \boldsymbol{\eta}_{i, t}
+  =
+  \boldsymbol{\alpha}
+  +
+  \boldsymbol{\beta}
+  \boldsymbol{\eta}_{i, t - 1}
+  +
+  \boldsymbol{\zeta}_{i, t},
+  \quad
+  \mathrm{with}
+  \quad
+  \boldsymbol{\zeta}_{i, t}
+  \sim
+  \mathcal{N}
+  \left(
+  \mathbf{0},
+  \boldsymbol{\Psi}
+  \right)
+\end{equation}
+```
+where $`\boldsymbol{\eta}_{i, t}`$, $`\boldsymbol{\eta}_{i, t - 1}`$,
+and $`\boldsymbol{\zeta}_{i, t}`$ are random variables, and
+$`\boldsymbol{\alpha}`$, $`\boldsymbol{\beta}`$, and
+$`\boldsymbol{\Psi}`$ are model parameters. Here,
+$`\boldsymbol{\eta}_{i, t}`$ is a vector of latent variables at time
+$`t`$ and individual $`i`$, $`\boldsymbol{\eta}_{i, t - 1}`$ represents
+a vector of latent variables at time $`t - 1`$ and individual $`i`$, and
+$`\boldsymbol{\zeta}_{i, t}`$ represents a vector of dynamic noise at
+time $`t`$ and individual $`i`$. $`\boldsymbol{\alpha}`$ denotes a
+vector of intercepts, $`\boldsymbol{\beta}`$ a matrix of autoregression
+and cross regression coefficients, and $`\boldsymbol{\Psi}`$ the
+covariance matrix of $`\boldsymbol{\zeta}_{i, t}`$.
+
+An alternative representation of the dynamic noise is given by
+``` math
+\begin{equation}
+  \boldsymbol{\zeta}_{i, t}
+  =
+  \boldsymbol{\Psi}^{\frac{1}{2}}
+  \mathbf{z}_{i, t},
+  \quad
+  \mathrm{with}
+  \quad
+  \mathbf{z}_{i, t}
+  \sim
+  \mathcal{N}
+  \left(
+  \mathbf{0},
+  \mathbf{I}
+  \right)
+\end{equation}
+```
+where
+$`\left( \boldsymbol{\Psi}^{\frac{1}{2}} \right) \left( \boldsymbol{\Psi}^{\frac{1}{2}} \right)^{\prime} = \boldsymbol{\Psi}`$
+.
+
+## Parameters
+
+### Notation
+
+Let $`t = 100`$ be the number of time points and $`n = 5`$ be the number
+of individuals.
+
+Let the initial condition $`\boldsymbol{\eta}_{0}`$ be given by
+
+``` math
+\begin{equation}
+\boldsymbol{\eta}_{0} \sim \mathcal{N} \left( \boldsymbol{\mu}_{\boldsymbol{\eta} \mid 0}, \boldsymbol{\Sigma}_{\boldsymbol{\eta} \mid 0} \right)
+\end{equation}
+```
+
+``` math
+\begin{equation}
+\boldsymbol{\mu}_{\boldsymbol{\eta} \mid 0}
+=
+\left(
+\begin{array}{c}
+  0 \\
+  0 \\
+  0 \\
+\end{array}
+\right)
+\end{equation}
+```
+
+``` math
+\begin{equation}
+\boldsymbol{\Sigma}_{\boldsymbol{\eta} \mid 0}
+=
+\left(
+\begin{array}{ccc}
+  1 & 0.2 & 0.2 \\
+  0.2 & 1 & 0.2 \\
+  0.2 & 0.2 & 1 \\
+\end{array}
+\right) .
+\end{equation}
+```
+
+Let the constant vector $`\boldsymbol{\alpha}`$ be given by
+
+``` math
+\begin{equation}
+\boldsymbol{\alpha}
+=
+\left(
+\begin{array}{c}
+  0 \\
+  0 \\
+  0 \\
+\end{array}
+\right) .
+\end{equation}
+```
+
+Let the transition matrix $`\boldsymbol{\beta}`$ be given by
+
+``` math
+\begin{equation}
+\boldsymbol{\beta}
+=
+\left(
+\begin{array}{ccc}
+  0.7 & 0 & 0 \\
+  0.5 & 0.6 & 0 \\
+  -0.1 & 0.4 & 0.5 \\
+\end{array}
+\right) .
+\end{equation}
+```
+
+Let the dynamic process noise $`\boldsymbol{\Psi}`$ be given by
+
+``` math
+\begin{equation}
+\boldsymbol{\Psi}
+=
+\left(
+\begin{array}{ccc}
+  0.1 & 0 & 0 \\
+  0 & 0.1 & 0 \\
+  0 & 0 & 0.1 \\
+\end{array}
+\right) .
+\end{equation}
+```
+
+### R Function Arguments
+
+``` r
+
+n
+#> [1] 5
+time
+#> [1] 100
+mu0
+#> [1] 0 0 0
+sigma0
+#>      [,1] [,2] [,3]
+#> [1,]  1.0  0.2  0.2
+#> [2,]  0.2  1.0  0.2
+#> [3,]  0.2  0.2  1.0
+sigma0_l # sigma0_l <- t(chol(sigma0))
+#>      [,1]      [,2]      [,3]
+#> [1,]  1.0 0.0000000 0.0000000
+#> [2,]  0.2 0.9797959 0.0000000
+#> [3,]  0.2 0.1632993 0.9660918
+alpha
+#> [1] 0 0 0
+beta
+#>      [,1] [,2] [,3]
+#> [1,]  0.7  0.0  0.0
+#> [2,]  0.5  0.6  0.0
+#> [3,] -0.1  0.4  0.5
+psi
+#>      [,1] [,2] [,3]
+#> [1,]  0.1  0.0  0.0
+#> [2,]  0.0  0.1  0.0
+#> [3,]  0.0  0.0  0.1
+psi_l # psi_l <- t(chol(psi))
+#>           [,1]      [,2]      [,3]
+#> [1,] 0.3162278 0.0000000 0.0000000
+#> [2,] 0.0000000 0.3162278 0.0000000
+#> [3,] 0.0000000 0.0000000 0.3162278
+```
+
+### Parametric Bootstrap
+
+``` r
+
+R <- 5L # use at least 1000 in actual research
+path <- getwd()
+prefix <- "var"
+```
+
+We use the `PBSSMVARFixed` function from the `bootStateSpace` package to
+perform parametric bootstraping using the parameters described above.
+The argument `R` specifies the number of bootstrap replications. The
+generated data and model estimates are stored in `path` using the
+specified `prefix` for the file names. The
+`ncores = parallel::detectCores()` argument instructs the function to
+use all available CPU cores in the system.
+
+> ***NOTE:*** Fitting the VAR model multiple times is computationally
+> intensive.
+
+``` r
+
+library(bootStateSpace)
+pb <- PBSSMVARFixed(
+  R = R,
+  path = path,
+  prefix = prefix,
+  n = n,
+  time = time,
+  mu0 = mu0,
+  sigma0_l = sigma0_l,
+  alpha = alpha,
+  beta = beta,
+  psi_l = psi_l,
+  ncores = parallel::detectCores(),
+  seed = 42
+)
+summary(pb)
+#> Call:
+#> PBSSMVARFixed(R = R, path = path, prefix = prefix, n = n, time = time, 
+#>     mu0 = mu0, sigma0_l = sigma0_l, alpha = alpha, beta = beta, 
+#>     psi_l = psi_l, ncores = parallel::detectCores(), seed = 42)
+#> 
+#> Parametric bootstrap confidence intervals.
+#> type = "pc"
+#>             est     se R    2.5%   97.5%
+#> beta_1_1    0.7 0.0339 5  0.6551  0.7341
+#> beta_2_1    0.5 0.0696 5  0.4397  0.6139
+#> beta_3_1   -0.1 0.0138 5 -0.1302 -0.0972
+#> beta_1_2    0.0 0.0228 5 -0.0512  0.0049
+#> beta_2_2    0.6 0.0314 5  0.5503  0.6281
+#> beta_3_2    0.4 0.0314 5  0.3935  0.4727
+#> beta_1_3    0.0 0.0079 5  0.0042  0.0216
+#> beta_2_3    0.0 0.0255 5 -0.0394  0.0152
+#> beta_3_3    0.5 0.0455 5  0.4177  0.5302
+#> psi_1_1     0.1 0.0071 5  0.0876  0.1036
+#> psi_2_2     0.1 0.0050 5  0.0945  0.1071
+#> psi_3_3     0.1 0.0055 5  0.0907  0.1042
+#> mu0_1_1     0.0 0.4044 5 -0.2154  0.7369
+#> mu0_2_1     0.0 0.3852 5 -0.5774  0.2867
+#> mu0_3_1     0.0 0.5032 5 -0.3756  0.8423
+#> sigma0_1_1  1.0 0.8976 5  0.1233  2.1864
+#> sigma0_2_1  0.2 0.3017 5 -0.0461  0.6421
+#> sigma0_3_1  0.2 0.5036 5 -0.1206  1.1222
+#> sigma0_2_2  1.0 0.5553 5  0.3093  1.5738
+#> sigma0_3_2  0.2 0.4335 5  0.1063  0.9411
+#> sigma0_3_3  1.0 0.2949 5  0.5638  1.2361
+summary(pb, type = "bc")
+#> Call:
+#> PBSSMVARFixed(R = R, path = path, prefix = prefix, n = n, time = time, 
+#>     mu0 = mu0, sigma0_l = sigma0_l, alpha = alpha, beta = beta, 
+#>     psi_l = psi_l, ncores = parallel::detectCores(), seed = 42)
+#> 
+#> Parametric bootstrap confidence intervals.
+#> type = "bc"
+#>             est     se R    2.5%   97.5%
+#> beta_1_1    0.7 0.0339 5  0.6488  0.7186
+#> beta_2_1    0.5 0.0696 5  0.4358  0.5994
+#> beta_3_1   -0.1 0.0138 5 -0.1203 -0.0959
+#> beta_1_2    0.0 0.0228 5 -0.0254  0.0068
+#> beta_2_2    0.6 0.0314 5  0.5581  0.6295
+#> beta_3_2    0.4 0.0314 5  0.3910  0.4351
+#> beta_1_3    0.0 0.0079 5  0.0037  0.0037
+#> beta_2_3    0.0 0.0255 5 -0.0393  0.0164
+#> beta_3_3    0.5 0.0455 5  0.4748  0.5337
+#> psi_1_1     0.1 0.0071 5  0.0923  0.1040
+#> psi_2_2     0.1 0.0050 5  0.0954  0.1074
+#> psi_3_3     0.1 0.0055 5  0.0957  0.1047
+#> mu0_1_1     0.0 0.4044 5 -0.2311  0.5848
+#> mu0_2_1     0.0 0.3852 5 -0.5490  0.3028
+#> mu0_3_1     0.0 0.5032 5 -0.3354  0.8980
+#> sigma0_1_1  1.0 0.8976 5  0.3943  2.3235
+#> sigma0_2_1  0.2 0.3017 5 -0.0365  0.6736
+#> sigma0_3_1  0.2 0.5036 5 -0.1446  1.0188
+#> sigma0_2_2  1.0 0.5553 5  0.3237  1.6153
+#> sigma0_3_2  0.2 0.4335 5  0.1063  0.9353
+#> sigma0_3_3  1.0 0.2949 5  0.5891  1.2471
+```
+
+## References
+
+Ou, L., Hunter, M. D., & Chow, S.-M. (2019). What’s for dynr: A package
+for linear and nonlinear dynamic modeling in R. *The R Journal*,
+*11*(1), 91. <https://doi.org/10.32614/rj-2019-012>
+
+Pesigan, I. J. A., Russell, M. A., & Chow, S.-M. (2025). Inferences and
+effect sizes for direct, indirect, and total effects in continuous-time
+mediation models. *Psychological Methods*.
+<https://doi.org/10.1037/met0000779>
+
+R Core Team. (2024). *R: A language and environment for statistical
+computing*. R Foundation for Statistical Computing.
+<https://www.R-project.org/>
