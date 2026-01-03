@@ -26,7 +26,7 @@
     nrow = max(row),
     ncol = max(col)
   )
-  for (i in seq_len(length(row))) {
+  for (i in seq_along(row)) {
     y_matrix[row[i], col[i]] <- y[i]
     y_matrix[col[i], row[i]] <- y[i]
   }
